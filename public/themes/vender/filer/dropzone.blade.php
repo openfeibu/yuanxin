@@ -2,21 +2,21 @@
 <div class="layui-input-block">
     <div class="layui-upload-drag" id="uploadImage_{!!$field!!}">
 
-            <i class="layui-icon layui-icon-upload-drag"></i>
-            <p>点击上传，或将文件拖拽到此处</p>
+        <i class="layui-icon layui-icon-upload-drag"></i>
+        <p>点击上传，或将文件拖拽到此处</p>
 
-            @if($files)
+        @if($files)
             <hr/>
-            <div class="">
+            <div class="layui-upload-view">
 
-                <img id="image_{!!$field!!}" src="{!!url("/image/original".$files['path'])!!}" style="max-width: 196px">
+                <img id="image_{!!$field!!}" src="{!! $files['url'] !!}" style="max-width: 196px">
             </div>
-            @else
+        @else
             <hr/>
-            <div class="layui-hide">
+            <div class="layui-hide layui-upload-view">
                 <img id="image_{!!$field!!}" src="" style="max-width: 196px">
             </div>
-            @endif
+        @endif
 
     </div>
 </div>
