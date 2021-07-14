@@ -40,7 +40,7 @@
             ,cols: [[
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
-                ,{field:'title',title:'{{ trans('app.title') }}', sort: true}
+                ,{field:'title',title:'{{ trans('app.title') }}', sort: true,edit:'text'}
                 ,{field:'image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
                 ,{field:'url',title:'{{ trans('banner.label.url') }}', sort: true}
                 ,{field:'order',title:'{{ trans('app.order') }}', sort: true}
