@@ -29,7 +29,6 @@ class AppointmentController extends BaseController
     public function getAppointments(Request $request)
     {
 
-
     }
     public function getAppointment(Request $request,$id)
     {
