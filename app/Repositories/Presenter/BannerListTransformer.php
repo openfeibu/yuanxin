@@ -12,6 +12,7 @@ class BannerListTransformer extends TransformerAbstract
             'id' => $banner->id,
             'image' => $banner->image ? url("/image/sm".$banner->image) : '',
             'url' => $banner->url,
+            'type_desc' => trans('banner.type.'.$banner->type),
             'order' => $banner->order,
         ];
     }

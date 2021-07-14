@@ -22,12 +22,21 @@
                         <div class="layui-input-inline">
                             <input type="text" name="url" placeholder="请输入路径" autocomplete="off" class="layui-input">
                         </div>
-                        <div class="layui-form-mid layui-word-aux">路径为小程序路径</div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">排序</label>
                         <div class="layui-input-inline">
                             <input type="text" name="order" autocomplete="off" placeholder="" class="layui-input" value="0" lay-verify="number">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-inline">
+                            <select name="type" lay-filter="aihao">
+                                @foreach(config('model.banner.banner.type') as $type)
+                                <option value="{{ $type }}">{{ trans('banner.type.'.$type) }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="layui-form-item">

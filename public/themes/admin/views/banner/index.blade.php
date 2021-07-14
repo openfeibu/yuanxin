@@ -43,7 +43,8 @@
                 ,{field:'title',title:'{{ trans('app.title') }}', sort: true}
                 ,{field:'image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
                 ,{field:'url',title:'{{ trans('banner.label.url') }}', sort: true}
-                ,{field:'order',title:'排序', sort: true}
+                ,{field:'order',title:'{{ trans('app.order') }}', sort: true}
+                ,{field:'type_desc',title:'{{ trans('app.type') }}', sort: true}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'
