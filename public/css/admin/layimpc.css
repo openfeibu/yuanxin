@@ -1,0 +1,1169 @@
+/** layui-v2.5.7 MIT License */
+
+html #layuicss-skinlayimpccss {
+    display: none;
+    position: absolute;
+    width: 1989px
+}
+
+body .layui-layimpc, body .layui-layimpc-chat {
+    border: 1px solid #D9D9D9;
+    border-color: rgba(0, 0, 0, .05);
+    background-repeat: no-repeat;
+    background-color: #F6F6F6;
+    color: #333;
+    font-family: \5FAE\8F6F\96C5\9ED1
+}
+
+body .layui-layimpc-chat {
+    background-size: cover
+}
+
+body .layui-layimpc .layui-layer-title {
+    height: 110px;
+    border-bottom: none;
+    background: 0 0
+}
+
+.layui-layimpc-main {
+    position: relative;
+    top: -98px;
+    left: 0
+}
+
+body .layui-layimpc .layui-layer-content, body .layui-layimpc-chat .layui-layer-content {
+    overflow: visible
+}
+
+.layui-layimpc cite, .layui-layimpc em, .layui-layimpc-chat cite, .layui-layimpc-chat em {
+    font-style: normal
+}
+
+.layui-layimpc-info {
+    height: 50px;
+    font-size: 0;
+    padding: 0 15px
+}
+
+.layui-layimpc-info * {
+    font-size: 14px
+}
+
+.layimpc-tab-content li h5 *, .layui-layimpc-info div, .layui-layimpc-skin li, .layui-layimpc-tab li, .layui-layimpc-tool li {
+    display: inline-block;
+    vertical-align: top;
+    *zoom: 1;
+    *display: inline
+}
+
+.layimpc-tab-content li h5 span, .layui-layimpc-info .layui-layimpc-user, .layui-layimpc-list li p, .layui-layimpc-list li span, .layui-layimpc-remark {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.layui-layimpc-info .layui-layimpc-user {
+    max-width: 150px;
+    margin-right: 5px;
+    font-size: 16px
+}
+
+.layui-layimpc-status {
+    position: relative;
+    top: 2px;
+    line-height: 19px;
+    cursor: pointer
+}
+
+.layimpc-status-online {
+    color: #3FDD86
+}
+
+.layimpc-status-hide {
+    color: #DD691D
+}
+
+.layimpc-menu-box {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 24px;
+    left: -31px;
+    padding: 5px 0;
+    width: 85px;
+    border: 1px solid #E2E2E2;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, .1)
+}
+
+.layimpc-menu-box li {
+    position: relative;
+    line-height: 22px;
+    padding-left: 30px;
+    font-size: 12px
+}
+
+.layimpc-menu-box li cite {
+    padding-right: 5px;
+    font-size: 14px
+}
+
+.layimpc-menu-box li i {
+    display: none;
+    position: absolute;
+    left: 8px;
+    top: 0;
+    font-weight: 700;
+    color: #5FB878
+}
+
+.layimpc-menu-box .layimpc-this i {
+    display: block
+}
+
+.layimpc-menu-box li:hover {
+    background-color: #eee
+}
+
+.layui-layimpc-remark {
+    position: relative;
+    left: -6px;
+    display: block;
+    width: 100%;
+    border: 1px solid transparent;
+    margin-top: 8px;
+    padding: 0 5px;
+    height: 26px;
+    line-height: 26px;
+    background: 0 0;
+    border-radius: 2px
+}
+
+.layui-layimpc-remark:focus, .layui-layimpc-remark:hover {
+    border: 1px solid #d2d2d2;
+    border-color: rgba(0, 0, 0, .15)
+}
+
+.layui-layimpc-remark:focus {
+    background-color: #fff
+}
+
+.layui-layimpc-tab {
+    margin-top: 10px;
+    padding: 9px 0;
+    font-size: 0
+}
+
+.layui-layimpc-tab li {
+    position: relative;
+    width: 33.33%;
+    height: 24px;
+    line-height: 24px;
+    font-size: 22px;
+    text-align: center;
+    color: #666;
+    color: rgba(0, 0, 0, .6);
+    cursor: pointer
+}
+
+.layimpc-tab-two li {
+    width: 50%
+}
+
+.layui-layimpc-tab li.layimpc-this:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    width: 100%;
+    height: 3px;
+    background-color: #3FDD86
+}
+
+.layui-layimpc-tab li.layimpc-hide {
+    display: none
+}
+
+.layui-layimpc-tab li:hover {
+    opacity: .8;
+    filter: Alpha(opacity=80)
+}
+
+.layimpc-tab-content {
+    display: none;
+    padding: 10px 0;
+    height: 349px;
+    overflow: hidden;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, .9)
+}
+
+.layimpc-tab-content:hover {
+    overflow-y: auto
+}
+
+.layimpc-tab-content li h5 {
+    position: relative;
+    margin-right: 15px;
+    padding-left: 30px;
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.layimpc-tab-content li h5 * {
+    font-size: 14px
+}
+
+.layimpc-tab-content li h5 span {
+    max-width: 125px
+}
+
+.layimpc-tab-content li h5 i {
+    position: absolute;
+    left: 12px;
+    top: 0;
+    color: #C9BDBB
+}
+
+.layimpc-tab-content li h5 em {
+    padding-left: 5px;
+    color: #999
+}
+
+.layimpc-tab-content li h5[lay-type=true] i {
+    top: 2px
+}
+
+.layimpc-tab-content li ul {
+    display: none;
+    margin-bottom: 10px
+}
+
+.layui-layimpc-list li {
+    position: relative;
+    height: 42px;
+    padding: 5px 15px 5px 60px;
+    font-size: 0;
+    cursor: pointer
+}
+
+.layui-layimpc-list li:hover {
+    background-color: #F2F2F2;
+    background-color: rgba(0, 0, 0, .05)
+}
+
+.layui-layimpc-list li.layimpc-null {
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    cursor: default
+}
+
+.layui-layimpc-list li.layimpc-null:hover {
+    background: 0 0
+}
+
+.layui-layimpc-list li * {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px
+}
+
+.layui-layimpc-list li span {
+    margin-top: 4px;
+    max-width: 155px
+}
+
+.layui-layimpc-list li img {
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%
+}
+
+.layui-layimpc-list li p {
+    display: block;
+    padding-right: 30px;
+    line-height: 18px;
+    font-size: 12px;
+    color: #999
+}
+
+.layui-layimpc-list li .layimpc-msg-status {
+    display: none;
+    position: absolute;
+    right: 10px;
+    bottom: 7px;
+    padding: 0 5px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 10px;
+    background-color: #F74C31;
+    color: #fff
+}
+
+.layimpc-list-gray {
+    -webkit-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray
+}
+
+.layui-layimpc-tool {
+    padding: 0 10px;
+    font-size: 0;
+    background-color: #F6F6F6;
+    border-radius: 0 0 2px 2px
+}
+
+.layui-layimpc-tool li {
+    position: relative;
+    width: 48px;
+    height: 37px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer
+}
+
+.layui-layimpc-tool li:active {
+    background-color: #e2e2e2
+}
+
+.layui-layimpc-tool .layimpc-tool-msgbox {
+    line-height: 37px
+}
+
+.layui-layimpc-tool .layimpc-tool-find {
+    line-height: 38px
+}
+
+.layui-layimpc-tool .layimpc-tool-skin {
+    font-size: 26px
+}
+
+.layimpc-tool-msgbox span {
+    display: none;
+    position: absolute;
+    left: 12px;
+    top: -12px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+    border-radius: 2px;
+    background-color: #33DF83;
+    color: #fff;
+    font-size: 12px;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s
+}
+
+.layimpc-tool-msgbox .layer-anim-05 {
+    display: block
+}
+
+.layui-layimpc-search {
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    height: 28px;
+    line-height: 28px
+}
+
+.layui-layimpc-search input {
+    width: 210px;
+    padding: 0 30px 0 10px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ddd
+}
+
+.layui-layimpc-search label {
+    position: absolute;
+    right: 6px;
+    top: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    font-weight: 400
+}
+
+.layui-layimpc-skin {
+    margin: 10px 0 0 10px;
+    font-size: 0
+}
+
+.layui-layimpc-skin li {
+    margin: 0 10px 10px 0;
+    line-height: 60px;
+    text-align: center;
+    background-color: #f6f6f6
+}
+
+.layui-layimpc-skin li, .layui-layimpc-skin li img {
+    width: 86px;
+    height: 60px;
+    cursor: pointer
+}
+
+.layui-layimpc-skin li img:hover {
+    opacity: .8;
+    filter: Alpha(opacity=80)
+}
+
+.layui-layimpc-skin li cite {
+    font-size: 14px;
+    font-style: normal
+}
+
+body .layui-layimpc-chat {
+    background-color: #fff
+}
+
+body .layui-layimpc-chat-list {
+    width: 760px
+}
+
+body .layui-layimpc-chat .layui-layer-title {
+    height: 80px;
+    border-bottom: none;
+    background-color: #F8F8F8;
+    background-color: rgba(245, 245, 245, .7)
+}
+
+body .layui-layimpc-chat .layui-layer-content {
+    background: 0 0
+}
+
+.layimpc-chat-list li *, .layui-layimpc-min .layui-layer-content * {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px
+}
+
+.layimpc-chat-list {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: -80px;
+    width: 200px;
+    height: 100%;
+    background-color: #D9D9D9;
+    overflow: hidden;
+    font-size: 0
+}
+
+.layimpc-chat-list:hover {
+    overflow-y: auto
+}
+
+.layimpc-chat-list li, .layui-layimpc-min .layui-layer-content {
+    position: relative;
+    margin: 5px;
+    padding: 5px 30px 5px 5px;
+    line-height: 40px;
+    cursor: pointer;
+    border-radius: 3px
+}
+
+.layimpc-chat-list li img, .layui-layimpc-min .layui-layer-content img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%
+}
+
+.layui-layimpc-photos {
+    cursor: crosshair
+}
+
+.layimpc-chat-list li {
+    white-space: nowrap
+}
+
+.layimpc-chat-list li span, .layui-layimpc-min .layui-layer-content span {
+    width: 100px;
+    padding-left: 10px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.layimpc-chat-list li span cite {
+    color: #999;
+    padding-left: 10px
+}
+
+.layimpc-chat-list li:hover {
+    background-color: #E2E2E2
+}
+
+.layimpc-chat-list li.layimpc-this {
+    background-color: #F3F3F3
+}
+
+.layimpc-chat-list li .layui-icon {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    color: #555;
+    font-size: 22px
+}
+
+.layimpc-chat-list li .layui-icon:hover {
+    color: #c00
+}
+
+.layimpc-chat-list li:hover .layui-icon {
+    display: inline-block
+}
+
+.layimpc-chat-system {
+    margin: 10px 0;
+    text-align: center
+}
+
+.layimpc-chat-system span {
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 15px;
+    border-radius: 3px;
+    background-color: #e2e2e2;
+    cursor: default;
+    font-size: 14px
+}
+
+.layimpc-chat {
+    display: none;
+    position: relative;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.layimpc-chat-title {
+    position: absolute;
+    top: -80px;
+    height: 80px
+}
+
+.layimpc-chat-other {
+    position: relative;
+    top: 15px;
+    left: 15px;
+    padding-left: 60px;
+    cursor: default
+}
+
+.layimpc-chat-other img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%
+}
+
+.layimpc-chat-username {
+    position: relative;
+    top: 5px;
+    font-size: 18px
+}
+
+.layimpc-chat-status {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #999
+}
+
+.layimpc-chat-group .layimpc-chat-other .layimpc-chat-username {
+    cursor: pointer
+}
+
+.layimpc-chat-group .layimpc-chat-other .layimpc-chat-username em {
+    padding: 0 10px;
+    color: #999
+}
+
+.layimpc-chat-main {
+    height: 262px;
+    padding: 15px 15px 5px;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.layimpc-chat-main ul li {
+    position: relative;
+    font-size: 0;
+    margin-bottom: 10px;
+    padding-left: 60px;
+    min-height: 68px
+}
+
+.layimpc-chat-text, .layimpc-chat-user {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px
+}
+
+.layimpc-chat-user {
+    position: absolute;
+    left: 3px
+}
+
+.layimpc-chat-user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%
+}
+
+.layimpc-chat-user cite {
+    position: absolute;
+    left: 60px;
+    top: -2px;
+    width: 500px;
+    line-height: 24px;
+    font-size: 12px;
+    white-space: nowrap;
+    color: #999;
+    text-align: left;
+    font-style: normal
+}
+
+.layimpc-chat-user cite i {
+    padding-left: 15px;
+    font-style: normal
+}
+
+.layimpc-chat-text {
+    position: relative;
+    line-height: 22px;
+    margin-top: 25px;
+    padding: 8px 15px;
+    background-color: #e2e2e2;
+    border-radius: 3px;
+    color: #333;
+    word-break: break-all;
+    max-width: 462px\9
+}
+
+.layimpc-chat-text:after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 13px;
+    width: 0;
+    height: 0;
+    border-style: solid dashed dashed;
+    border-color: #e2e2e2 transparent transparent;
+    overflow: hidden;
+    border-width: 10px
+}
+
+.layimpc-chat-text a {
+    color: #33DF83
+}
+
+.layimpc-chat-text img {
+    max-width: 100%;
+    vertical-align: middle
+}
+
+.layimpc-chat-text .layui-layimpc-file, .layui-layimpc-file {
+    display: block;
+    text-align: center
+}
+
+.layimpc-chat-text .layui-layimpc-file {
+    color: #333
+}
+
+.layui-layimpc-file:hover {
+    opacity: .9
+}
+
+.layui-layimpc-file i {
+    font-size: 80px;
+    line-height: 80px
+}
+
+.layui-layimpc-file cite {
+    display: block;
+    line-height: 20px;
+    font-size: 14px
+}
+
+.layui-layimpc-audio {
+    text-align: center;
+    cursor: pointer
+}
+
+.layui-layimpc-audio .layui-icon {
+    position: relative;
+    top: 5px;
+    font-size: 24px
+}
+
+.layui-layimpc-audio p {
+    margin-top: 3px
+}
+
+.layui-layimpc-video {
+    width: 120px;
+    height: 80px;
+    line-height: 80px;
+    background-color: #333;
+    text-align: center;
+    border-radius: 3px
+}
+
+.layui-layimpc-video .layui-icon {
+    font-size: 36px;
+    cursor: pointer;
+    color: #fff
+}
+
+.layimpc-chat-main ul .layimpc-chat-system {
+    min-height: 0;
+    padding: 0
+}
+
+.layimpc-chat-main ul .layimpc-chat-mine {
+    text-align: right;
+    padding-left: 0;
+    padding-right: 60px
+}
+
+.layimpc-chat-mine .layimpc-chat-user {
+    left: auto;
+    right: 3px
+}
+
+.layimpc-chat-mine .layimpc-chat-user cite {
+    left: auto;
+    right: 60px;
+    text-align: right
+}
+
+.layimpc-chat-mine .layimpc-chat-user cite i {
+    padding-left: 0;
+    padding-right: 15px
+}
+
+.layimpc-chat-mine .layimpc-chat-text {
+    margin-left: 0;
+    text-align: left;
+    background-color: #5FB878;
+    color: #fff
+}
+
+.layimpc-chat-mine .layimpc-chat-text:after {
+    left: auto;
+    right: -10px;
+    border-top-color: #5FB878
+}
+
+.layimpc-chat-mine .layimpc-chat-text a {
+    color: #fff
+}
+
+.layimpc-chat-footer {
+    border-top: 1px solid #F1F1F1
+}
+
+.layimpc-chat-tool {
+    position: relative;
+    padding: 0 8px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 0
+}
+
+.layimpc-chat-tool span {
+    position: relative;
+    margin: 0 10px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 24px;
+    cursor: pointer
+}
+
+.layimpc-chat-tool .layimpc-tool-log {
+    position: absolute;
+    right: 5px;
+    font-size: 14px
+}
+
+.layimpc-tool-log i {
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+    font-size: 20px;
+    color: #999
+}
+
+.layimpc-tool-image input {
+    position: absolute;
+    font-size: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .01;
+    filter: Alpha(opacity=1);
+    cursor: pointer
+}
+
+body .layui-layimpc-face {
+    margin: 10px 0 0 -18px;
+    border: none;
+    background: 0 0
+}
+
+body .layui-layimpc-face .layui-layer-content {
+    padding: 0;
+    background-color: #fff;
+    color: #666;
+    box-shadow: none
+}
+
+.layui-layimpc-face .layui-layer-TipsG {
+    display: none
+}
+
+.layui-layimpc-face ul {
+    position: relative;
+    width: 372px;
+    padding: 10px;
+    border: 1px solid #D9D9D9;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2)
+}
+
+.layui-layimpc-face ul li {
+    cursor: pointer;
+    float: left;
+    border: 1px solid #e8e8e8;
+    height: 22px;
+    width: 26px;
+    overflow: hidden;
+    margin: -1px 0 0 -1px;
+    padding: 4px 2px;
+    text-align: center
+}
+
+.layui-layimpc-face ul li:hover {
+    position: relative;
+    z-index: 2;
+    border: 1px solid #eb7350;
+    background: #fff9ec
+}
+
+.layimpc-chat-textarea {
+    margin-left: 10px
+}
+
+.layimpc-chat-textarea textarea {
+    display: block;
+    width: 100%;
+    padding: 5px 0 0;
+    height: 68px;
+    line-height: 20px;
+    border: none;
+    overflow: auto;
+    resize: none;
+    background: 0 0
+}
+
+.layimpc-chat-textarea textarea:focus {
+    outline: 0
+}
+
+.layimpc-chat-bottom {
+    position: relative;
+    height: 46px
+}
+
+.layimpc-chat-send {
+    position: absolute;
+    right: 15px;
+    top: 3px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 0;
+    cursor: pointer
+}
+
+.layimpc-chat-send span {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 32px;
+    margin-left: 5px;
+    padding: 0 20px;
+    background-color: #5FB878;
+    color: #fff;
+    border-radius: 3px
+}
+
+.layimpc-chat-send span:hover {
+    background-color: #69BC80
+}
+
+.layimpc-chat-send span:active {
+    background-color: #59B573
+}
+
+.layimpc-chat-send .layimpc-send-btn {
+    border-radius: 3px 0 0 3px
+}
+
+.layimpc-chat-send .layimpc-send-set {
+    position: relative;
+    width: 30px;
+    height: 32px;
+    margin-left: 0;
+    padding: 0;
+    border-left: 1px solid #85C998;
+    border-radius: 0 3px 3px 0
+}
+
+.layimpc-send-set .layui-edge {
+    position: absolute;
+    top: 14px;
+    left: 9px;
+    border-width: 6px;
+    border-top-style: solid;
+    border-top-color: #fff
+}
+
+.layimpc-chat-send .layimpc-menu-box {
+    left: auto;
+    right: 0;
+    top: 33px;
+    width: 180px;
+    padding: 10px 0
+}
+
+.layimpc-chat-send .layimpc-menu-box li {
+    padding-right: 15px;
+    line-height: 28px
+}
+
+body .layui-layimpc-min {
+    border: 1px solid #D9D9D9
+}
+
+.layui-layimpc-min .layui-layer-content {
+    margin: 0 5px;
+    padding: 5px 10px;
+    white-space: nowrap
+}
+
+.layui-layimpc-close .layui-layer-content span {
+    width: auto;
+    max-width: 120px
+}
+
+body .layui-layimpc-members {
+    margin: 25px 0 0 -75px;
+    border: none;
+    background: 0 0
+}
+
+body .layui-layimpc-members .layui-layer-content {
+    padding: 0;
+    background: 0 0;
+    color: #666;
+    box-shadow: none
+}
+
+.layui-layimpc-members .layui-layer-TipsG {
+    display: none
+}
+
+.layui-layimpc-members ul {
+    position: relative;
+    width: 578px;
+    height: 200px;
+    padding: 10px 10px 0;
+    border: 1px solid #D9D9D9;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: none;
+    overflow: hidden;
+    font-size: 0
+}
+
+.layui-layimpc-members ul:hover {
+    overflow: auto
+}
+
+.layimpc-add-img, .layimpc-add-remark, .layui-layimpc-members li {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px
+}
+
+.layui-layimpc-members li {
+    width: 112px;
+    margin: 10px 0;
+    text-align: center
+}
+
+.layui-layimpc-members li a {
+    position: relative;
+    display: inline-block;
+    max-width: 100%
+}
+
+.layui-layimpc-members li a:after {
+    content: '';
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 50%;
+    margin-left: -23px;
+    top: 0;
+    border: 1px solid #eee;
+    border-color: rgba(0, 0, 0, .1);
+    border-radius: 100%
+}
+
+.layui-layimpc-members li img {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%
+}
+
+.layui-layimpc-members li:hover {
+    opacity: .9
+}
+
+.layui-layimpc-members li a cite {
+    display: block;
+    padding: 0 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+body .layui-layimpc-contextmenu {
+    margin: 70px 0 0 30px;
+    width: 200px;
+    padding: 5px 0;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2)
+}
+
+body .layui-layimpc-contextmenu .layui-layer-content {
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    box-shadow: none
+}
+
+.layui-layimpc-contextmenu .layui-layer-TipsG {
+    display: none
+}
+
+.layui-layimpc-contextmenu li {
+    padding: 0 15px 0 35px;
+    cursor: pointer;
+    line-height: 30px
+}
+
+.layui-layimpc-contextmenu li:hover {
+    background-color: #F2F2F2
+}
+
+.layimpc-add-box {
+    margin: 15px;
+    font-size: 0
+}
+
+.layimpc-add-img img, .layimpc-add-remark p {
+    margin-bottom: 10px
+}
+
+.layimpc-add-img {
+    width: 100px;
+    margin-right: 20px;
+    text-align: center
+}
+
+.layimpc-add-img img {
+    width: 100px;
+    height: 100px
+}
+
+.layimpc-add-remark {
+    width: 280px
+}
+
+.layimpc-add-remark .layui-select {
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.layimpc-add-remark .layui-textarea {
+    height: 80px;
+    min-height: 80px;
+    resize: none
+}
+
+.layimpc-tab-content, .layui-layimpc-face ul, .layui-layimpc-tab {
+    margin-bottom: 0
+}
+
+.layimpc-tab-content li h5 {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+, .layui-layimpc-face img {
+      vertical-align: bottom
+  }
+
+.layimpc-chat-other span {
+    color: #444
+}
+
+.layimpc-chat-other span cite {
+    padding: 0 15px;
+    color: #999
+}
+
+.layimpc-chat-other:hover {
+    text-decoration: none
+}

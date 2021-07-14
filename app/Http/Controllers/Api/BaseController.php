@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Api\Controller;
+use App\Http\Response\ApiResponse;
+use Dingo\Api\Routing\Helpers;
+use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Models\User;
+
+class BaseController extends Controller
+{
+    use Helpers;
+
+    public function __construct()
+    {
+        set_route_guard('api','user','user');
+        $this->response = app(ApiResponse::class);
+    }
+}
