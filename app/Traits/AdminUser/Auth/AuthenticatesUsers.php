@@ -124,4 +124,8 @@ trait AuthenticatesUsers
                 ->subject('Verify your email address');
         });
     }
+//    public function username()
+//    {
+//        return 'username';
+//    }
 }

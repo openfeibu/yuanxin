@@ -40,8 +40,9 @@
             ,cols: [[
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
-                ,{field:'image',title:'图片', width:200,toolbar:'#imageTEM',}
-                ,{field:'url',title:'路径', sort: true}
+                ,{field:'title',title:'{{ trans('app.title') }}', sort: true}
+                ,{field:'image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
+                ,{field:'url',title:'{{ trans('banner.label.url') }}', sort: true}
                 ,{field:'order',title:'排序', sort: true}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
