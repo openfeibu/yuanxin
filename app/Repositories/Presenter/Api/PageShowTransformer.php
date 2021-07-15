@@ -16,7 +16,7 @@ class PageShowTransformer extends TransformerAbstract
             'description' => $page->description ? $page->description : get_substr(strip_tags($page->content),200),
             'content' => replace_image_url($page->content,config('app.image_url')),
             'image' => handle_image_url($page->image,config('app.image_url').'/image/original'),
-            'date' => $page->updated_at->format('Y-m-d'),
+            'date' => $page->updated_at->format('m月d日'),
             'views_count' => $page->views_count + 1,
         ];
     }

@@ -49,10 +49,12 @@ class PageController extends BaseController
 
         if($all){
             $data = $data->get();
+            $count = count($data['data']);
         }else{
             $data = $data->getDataTable($limit);
+            $count = $data['recordsTotal'];
         }
-        return $this->response->success()->data($data['data'])->json();
+        return $this->response->success()->data($data['data'])->count($count)->json();
 
     }
     public function getPage(Request $request, $id)
@@ -83,6 +85,30 @@ class PageController extends BaseController
         return $this->response->success()->data($page['data'])->json();
     }
 
+    public function getAboutImages()
+    {
+        $category_id = 3;
+        $data = $this->repository->setPresenter(\App\Repositories\Presenter\Api\PageListPresenter::class)
+            ->where(['status' => 'show'])
+            ->where(['category_id' => $category_id])
+            ->whereNotNull('image')
+            ->orderBy('order','asc')
+            ->orderBy('id','desc')
+            ->get();
 
+        return $this->response->success()->data($data['data'])->json();
+    }
+    public function getAboutContents()
+    {
+        $category_id = 3;
+        $data = $this->repository->setPresenter(\App\Repositories\Presenter\Api\PageListPresenter::class)
+            ->where(['status' => 'show'])
+            ->where(['category_id' => $category_id])
+            ->whereNotNull('title')
+            ->orderBy('order','asc')
+            ->orderBy('id','desc')
+            ->get();
 
+        return $this->response->success()->data($data['data'])->json();
+    }
 }

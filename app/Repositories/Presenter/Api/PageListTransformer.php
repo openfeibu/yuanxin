@@ -18,7 +18,7 @@ class PageListTransformer extends TransformerAbstract
             //'images' => $page->images,
             'description' => $page->description ? $page->description : get_substr(strip_tags($page->content),200),
             'category_id' => $page->category_id,
-            'date' => $page->updated_at->format('Y-m-d'),
+            'date' => $page->updated_at->format('m月d日'),
             'views_count' => $page->views_count,
         ];
     }

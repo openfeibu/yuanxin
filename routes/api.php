@@ -29,6 +29,8 @@ $api->version('v1', function ($api) {
     $api->get('/pages/{id}','App\Http\Controllers\Api\PageController@getPage');
     $api->get('/pages/slug/{slug}','App\Http\Controllers\Api\PageController@getPageSlug');
     $api->get('/page-categories','App\Http\Controllers\Api\PageCategoryController@getPageCategories');
+    $api->get('/about-images','App\Http\Controllers\Api\PageController@getAboutImages');
+    $api->get('/about-contents','App\Http\Controllers\Api\PageController@getAboutContents');
 
     $api->get('/projects','App\Http\Controllers\Api\ProjectController@getProjects');
     $api->get('/projects/{id}','App\Http\Controllers\Api\ProjectController@getProject');

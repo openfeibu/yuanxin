@@ -29,6 +29,7 @@
                             <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
                         </div>
                     </div>
+                    {!!Form::token()!!}
                 </form>
             </div>
 
