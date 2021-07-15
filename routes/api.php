@@ -38,4 +38,6 @@ $api->version('v1', function ($api) {
     $api->post('/appointments','App\Http\Controllers\Api\AppointmentController@storeAppointment');
     $api->get('/appointments','App\Http\Controllers\Api\AppointmentController@getAppointments');
 
+    $api->get('contact','App\Http\Controllers\Api\HomeController@contact');
+
 });

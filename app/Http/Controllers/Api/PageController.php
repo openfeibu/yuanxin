@@ -89,8 +89,8 @@ class PageController extends BaseController
     {
         $category_id = 3;
         $data = $this->repository->setPresenter(\App\Repositories\Presenter\Api\PageListPresenter::class)
-            ->where(['status' => 'show'])
-            ->where(['category_id' => $category_id])
+            ->where(['category_id' => $category_id,'status' => 'show'])
+            ->where('image','<>','')
             ->whereNotNull('image')
             ->orderBy('order','asc')
             ->orderBy('id','desc')
@@ -102,9 +102,9 @@ class PageController extends BaseController
     {
         $category_id = 3;
         $data = $this->repository->setPresenter(\App\Repositories\Presenter\Api\PageListPresenter::class)
-            ->where(['status' => 'show'])
-            ->where(['category_id' => $category_id])
+            ->where(['category_id' => $category_id,'status' => 'show'])
             ->whereNotNull('title')
+            ->where('title','<>','')
             ->orderBy('order','asc')
             ->orderBy('id','desc')
             ->get();

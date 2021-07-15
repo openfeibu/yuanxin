@@ -40,5 +40,13 @@ class HomeController extends BaseController
         }
         return $this->response->success()->data($banners)->json();
     }
-
+     public function contact()
+     {
+         return $this->response->success()->data([
+             'longitude' => setting('longitude'),
+             'latitude' => setting('latitude'),
+             'address' => setting('address'),
+             'tel' => setting('tel'),
+         ])->json();
+     }
 }
