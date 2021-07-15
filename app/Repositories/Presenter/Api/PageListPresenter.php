@@ -10,7 +10,7 @@ class PageListPresenter extends FractalPresenter
     /**
      * Prepare data to present
      *
-     * @return \App\Repositories\Eloquent\Api\PageListTransformer
+     * @return \App\Repositories\Presenter\Api\PageListTransformer
      */
     public function getTransformer()
     {

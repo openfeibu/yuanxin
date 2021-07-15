@@ -10,7 +10,7 @@ class SettingListPresenter extends FractalPresenter
     /**
      * Prepare data to present
      *
-     * @return \App\Repositories\Eloquent\Api\SettingListTransformer
+     * @return \App\Repositories\Presenter\Api\SettingListTransformer
      */
     public function getTransformer()
     {

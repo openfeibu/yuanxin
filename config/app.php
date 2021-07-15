@@ -53,7 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-    'image_url' => 'https://api.feibu.app',
+    'image_url' => 'https://yuanxinapi.feibu.info',
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

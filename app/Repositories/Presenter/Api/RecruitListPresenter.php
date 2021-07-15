@@ -10,7 +10,7 @@ class RecruitListPresenter extends FractalPresenter
     /**
      * Prepare data to present
      *
-     * @return \App\Repositories\Eloquent\Api\PageShowTransformer
+     * @return \App\Repositories\Presenter\Api\PageShowTransformer
      */
     public function getTransformer()
     {
