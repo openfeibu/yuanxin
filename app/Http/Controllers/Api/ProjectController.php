@@ -23,12 +23,12 @@ class ProjectController extends BaseController
         $projects = $this->projectRepository
             ->setPresenter(\App\Repositories\Presenter\Api\ProjectListPresenter::class)
             ->orderBy('id','desc')->get();
-        return $this->response->success()->data($projects)->json();
+        return $this->response->success()->data($projects['data'])->json();
     }
     public function getProject(Request $request,$id)
     {
         $project = $this->projectRepository->setPresenter(\App\Repositories\Presenter\Api\ProjectShowPresenter::class)
             ->find($id);
-        return $this->response->success()->data($project)->json();
+        return $this->response->success()->data($project['data'])->json();
     }
 }

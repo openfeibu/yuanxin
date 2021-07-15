@@ -14,7 +14,7 @@ class PageListTransformer extends TransformerAbstract
             'name' => $page->name,
             'heading' => $page->heading,
             'title' => $page->title,
-            'image' => $page->image ? config('app.image_url').'/image/sm'.$page->image : '',
+            'image' => $page->image ? handle_image_url($page->image,config('app.image_url').'/image/original') : '',
             //'images' => $page->images,
             'description' => $page->description ? $page->description : get_substr(strip_tags($page->content),200),
             'category_id' => $page->category_id,
