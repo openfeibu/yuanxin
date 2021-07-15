@@ -20,13 +20,13 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">电话</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="tel" lay-verify="tel" autocomplete="off" placeholder="请输入电话" class="layui-input" value="{{$company['tel']}}">
+                            <input type="text" name="tel" autocomplete="off" placeholder="请输入电话" class="layui-input" value="{{$company['tel']}}">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">邮箱</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="email" lay-verify="email" autocomplete="off" placeholder="请输入邮箱" class="layui-input" value="{{$company['email']}}">
+                            <input type="text" name="email" autocomplete="off" placeholder="请输入邮箱" class="layui-input" value="{{$company['email']}}">
                         </div>
                     </div>
                     <div class="layui-form-item">
