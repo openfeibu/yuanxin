@@ -40,8 +40,11 @@ class AppointmentController extends BaseController
     }
     public function getAppointment(Request $request,$id)
     {
-        $appointment = $this->appointmentRepository->find($id);
-        return $this->response->success()->data($appointment)->json();
+        $appointment = $this->appointmentRepository
+            ->setPresenter(\App\Repositories\Presenter\Api\AppointmentListPresenter::class)
+            ->where('user_id',$this->user->id)
+            ->find($id);
+        return $this->response->success()->data($appointment['data'])->json();
     }
     public function storeAppointment(Request $request)
     {
