@@ -96,7 +96,7 @@ class PageController extends BaseController
             ->orderBy('id','desc')
             ->get();
 
-        return $this->response->success()->data($data['data'])->json();
+        return $this->response->success()->data($data['data'])->count(count($data['data']))->json();
     }
     public function getAboutContents()
     {
@@ -109,6 +109,6 @@ class PageController extends BaseController
             ->orderBy('id','desc')
             ->get();
 
-        return $this->response->success()->data($data['data'])->json();
+        return $this->response->success()->data($data['data'])->count(count($data['data']))->json();
     }
 }

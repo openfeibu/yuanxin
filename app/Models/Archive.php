@@ -15,4 +15,5 @@ class Archive extends BaseModel
 
     protected $config = 'model.archive.archive';
 
+    public $timestamps = false;
 }

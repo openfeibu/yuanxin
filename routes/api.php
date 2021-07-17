@@ -40,4 +40,6 @@ $api->version('v1', function ($api) {
 
     $api->get('contact','App\Http\Controllers\Api\HomeController@contact');
 
+    $api->get('/user/archive','App\Http\Controllers\Api\UserController@getArchive');
+    $api->post('/user/archive','App\Http\Controllers\Api\UserController@storeArchive');
 });

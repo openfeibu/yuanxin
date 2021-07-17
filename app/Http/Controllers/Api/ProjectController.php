@@ -22,7 +22,8 @@ class ProjectController extends BaseController
     {
         $projects = $this->projectRepository
             ->setPresenter(\App\Repositories\Presenter\Api\ProjectListPresenter::class)
-            ->orderBy('id','desc')
+            ->orderBy('id','asc')
+            ->orderBy('order','asc')
             ->get();
         return $this->response->success()->data($projects['data'])->count(count($projects['data']))->json();
     }

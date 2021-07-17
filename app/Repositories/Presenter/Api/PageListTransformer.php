@@ -10,7 +10,7 @@ class PageListTransformer extends TransformerAbstract
     {
         return [
             'id' => $page->id,
-            'url' => url('/page',$page->id),
+            'url' => url('/pages',$page->id),
             'name' => $page->name,
             'heading' => $page->heading,
             'title' => $page->title,
