@@ -21,6 +21,7 @@ class AppointmentController extends BaseController
     {
         parent::__construct();
         $this->middleware('auth.api');
+        $this->user = User::getUser();
         $this->appointmentRepository = $appointmentRepository;
         $this->projectRepository = $projectRepository;
         $this->archiveRepository = $archiveRepository;
@@ -29,7 +30,13 @@ class AppointmentController extends BaseController
     }
     public function getAppointments(Request $request)
     {
-
+        $limit = $request->input('limit',config('app.limit'));
+        $appointments = $this->appointmentRepository
+            ->setPresenter(\App\Repositories\Presenter\Api\AppointmentListPresenter::class)
+            ->where('user_id',$this->user->id)
+            ->orderBy('id','desc')
+            ->getDataTable($limit);
+        return $this->response->success()->data($appointments['data'])->count($appointments['recordsTotal'])->json();
     }
     public function getAppointment(Request $request,$id)
     {

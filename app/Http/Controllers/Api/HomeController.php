@@ -43,6 +43,7 @@ class HomeController extends BaseController
      public function contact()
      {
          return $this->response->success()->data([
+             'company' => setting('company_name'),
              'longitude' => setting('longitude'),
              'latitude' => setting('latitude'),
              'address' => setting('address'),
