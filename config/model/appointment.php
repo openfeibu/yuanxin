@@ -5,7 +5,7 @@ return [
 /*
  * Modules .
  */
-    'modules'  => ['appointment'],
+    'modules'  => ['appointment','appointment_date'],
 
 
 /*
@@ -31,5 +31,21 @@ return [
 
         ],
     ],
+    'appointment_date'     => [
+        'model'        => 'App\Models\AppointmentDate',
+        'table'        => 'appointment_dates',
+        'primaryKey'   => 'id',
+        'hidden'       => [],
+        'visible'      => [],
+        'guarded'      => ['*'],
+        'fillable'     => ['start_time', 'end_time'],
+        'translate'    => [],
+        'upload_folder' => '/appointment',
+        'encrypt'      => ['id'],
+        'revision'     => ['name'],
+        'perPage'      => '20',
+        'search'        => [
 
+        ],
+    ],
 ];

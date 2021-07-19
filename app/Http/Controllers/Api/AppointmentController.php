@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Exceptions\OutputServerMessageException;
+use App\Repositories\Eloquent\AppointmentDateRepository;
 use App\Repositories\Eloquent\AppointmentRepository;
 use App\Repositories\Eloquent\ArchiveRepository;
 use App\Repositories\Eloquent\ProjectRepository;
@@ -16,6 +17,7 @@ class AppointmentController extends BaseController
 {
     public function __construct(
         AppointmentRepository $appointmentRepository,
+        AppointmentDateRepository $appointmentDateRepository,
         ProjectRepository $projectRepository,
         ArchiveRepository $archiveRepository)
     {
@@ -23,6 +25,7 @@ class AppointmentController extends BaseController
         $this->middleware('auth.api');
         $this->user = User::getUser();
         $this->appointmentRepository = $appointmentRepository;
+        $this->appointmentDateRepository = $appointmentDateRepository;
         $this->projectRepository = $projectRepository;
         $this->archiveRepository = $archiveRepository;
         $this->projectRepository
@@ -74,8 +77,8 @@ class AppointmentController extends BaseController
             throw new OutputServerMessageException('时间错误');
         }
         $archive = $this->archiveRepository->find($request->archive_id);
-        $project = $this->projectRepository->setPresenter(\App\Repositories\Presenter\Api\ProjectShowPresenter::class)->find($request->project_id);
-        $this->appointmentRepository->create([
+        //$project = $this->projectRepository->setPresenter(\App\Repositories\Presenter\Api\ProjectShowPresenter::class)->find($request->project_id);
+        $appointment = $this->appointmentRepository->create([
             'user_id' => $user->id,
             'date' => $request->date,
             'start_time' => $request->start_time,
@@ -85,12 +88,14 @@ class AppointmentController extends BaseController
             'phone' => $archive->phone,
             'idcard' => $archive->idcard,
         ]);
-        return $this->response->success()->message("预约成功！")->data([
-            'project' => $project['data'],
-            'date' => date('m月d日',strtotime($request->date)) . $request->start_time,
-            'name' => $archive->name,
-            'phone' => $archive->phone,
-            'idcard' => $archive->idcard,
-        ])->json();
+        $appointment = $this->appointmentRepository
+            ->setPresenter(\App\Repositories\Presenter\Api\AppointmentListPresenter::class)
+            ->where('user_id',$this->user->id)
+            ->find($appointment->id);
+        return $this->response->success()->message("预约成功！")->data($appointment['data'])->json();
+    }
+    public function getAppointmentDates()
+    {
+        $appointment_dates = 1;
     }
 }
