@@ -28,6 +28,24 @@ return [
         'revision'     => ['name'],
         'perPage'      => '20',
         'search'        => [
+
+        ],
+    ],
+    'report_file'     => [
+        'model'        => 'App\Models\ReportFiles',
+        'table'        => 'report_files',
+        'primaryKey'   => 'id',
+        'hidden'       => [],
+        'visible'      => [],
+        'guarded'      => ['*'],
+        'fillable'     => ['report_id', 'content','file', 'file_type'],
+        'translate'    => [],
+        'upload_folder' => '/report_file',
+        'encrypt'      => ['id'],
+        'revision'     => ['name'],
+        'perPage'      => '20',
+        'search'        => [
+
         ],
     ],
 

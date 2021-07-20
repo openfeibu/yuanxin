@@ -33,7 +33,7 @@ return [
         'guarded'      => ['*'],
         'slugs'        => ['slug' => 'name'],
         'dates'        => ['deleted_at'],
-        'fillable'     => ['name','title', 'category_id','slug', 'order', 'view', 'compile', 'status', 'upload_folder', 'image','description','content', 'abstract','recommend_type'],
+        'fillable'     => ['name','title','link', 'category_id','slug', 'order', 'view', 'compile', 'status', 'upload_folder', 'image','description','content', 'abstract','recommend_type'],
         'translate'    => ['name', 'content'],
         'upload_folder' => '/page',
         'uploads'      => [
