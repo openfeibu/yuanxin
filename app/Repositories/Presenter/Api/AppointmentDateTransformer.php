@@ -11,8 +11,8 @@ class AppointmentDateTransformer extends TransformerAbstract
     {
         return [
             'id' => $appointment_date->id,
-            'start_time' => $appointment_date->start_time,
-            'end_time' => $appointment_date->end_time,
+            'start_time' => substr($appointment_date->start_time,0,5),
+            'end_time' => substr($appointment_date->end_time,0,5),
             'count' => $appointment_date->count,
         ];
     }
