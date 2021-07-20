@@ -72,7 +72,7 @@ class AppointmentController extends BaseController
         }
         if($appointment_date->start_time.":00" < date('H:i:s'))
         {
-            throw new OutputServerMessageException('时间错误');
+            throw new OutputServerMessageException('该时间段已经无法预约');
         }
         $appointed_count = $this->appointmentRepository->where([
             'date' => $request->date,
