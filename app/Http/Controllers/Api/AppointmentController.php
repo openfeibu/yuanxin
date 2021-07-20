@@ -70,7 +70,18 @@ class AppointmentController extends BaseController
         {
             throw new OutputServerMessageException('时间不能小于今天');
         }
-
+        if($appointment_date->start_time.":00" < date('H:i:s'))
+        {
+            throw new OutputServerMessageException('时间错误');
+        }
+        $appointed_count = $this->appointmentRepository->where([
+            'date' => $request->date,
+            'start_time' => $appointment_date['start_time'],
+        ])->count();
+        if($appointment_date->count - $appointed_count <= 0)
+        {
+            throw new OutputServerMessageException('该时间段已预约满');
+        }
         $archive = $this->archiveRepository->find($request->archive_id);
         //$project = $this->projectRepository->setPresenter(\App\Repositories\Presenter\Api\ProjectShowPresenter::class)->find($request->project_id);
         $appointment = $this->appointmentRepository->create([
