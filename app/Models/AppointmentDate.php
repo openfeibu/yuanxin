@@ -13,6 +13,6 @@ class AppointmentDate extends BaseModel
 {
     use Filer, Hashids, Slugger, Translatable, LogsActivity;
 
-    protected $config = 'model.appointment_date.appointment_date';
+    protected $config = 'model.appointment.appointment_date';
 
 }

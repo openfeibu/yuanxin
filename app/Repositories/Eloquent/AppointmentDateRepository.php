@@ -10,11 +10,11 @@ class AppointmentDateRepository extends BaseRepository implements AppointmentDat
 
     public function boot()
     {
-        $this->fieldSearchable = config('model.appointment_date.appointment_date.search');
+        $this->fieldSearchable = config('model.appointment.appointment_date.search');
     }
     public function model()
     {
-        return config('model.appointment_date.appointment_date.model');
+        return config('model.appointment.appointment_date.model');
     }
 
 }

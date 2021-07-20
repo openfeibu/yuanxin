@@ -38,7 +38,7 @@ return [
         'hidden'       => [],
         'visible'      => [],
         'guarded'      => ['*'],
-        'fillable'     => ['start_time', 'end_time'],
+        'fillable'     => ['start_time', 'end_time','count'],
         'translate'    => [],
         'upload_folder' => '/appointment',
         'encrypt'      => ['id'],

@@ -39,6 +39,7 @@ $api->version('v1', function ($api) {
     $api->post('/appointments','App\Http\Controllers\Api\AppointmentController@storeAppointment');
     $api->get('/appointments','App\Http\Controllers\Api\AppointmentController@getAppointments');
     $api->get('/appointments/{id}','App\Http\Controllers\Api\AppointmentController@getAppointment');
+    $api->get('/appointment_dates','App\Http\Controllers\Api\AppointmentController@getAppointmentDates');
 
     $api->get('contact','App\Http\Controllers\Api\HomeController@contact');
 

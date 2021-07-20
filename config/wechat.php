@@ -94,8 +94,8 @@ return [
      */
      'mini_program' => [
         'default' => [
-            'app_id'  => env('WECHAT_MINI_PROGRAM_APPID', 'wx06d5cea896e10366'),
-            'secret'  => env('WECHAT_MINI_PROGRAM_SECRET', '7108d0cd353e20426be758ad456c38a8'),
+            'app_id'  => env('WECHAT_MINI_PROGRAM_APPID', 'wx0b8606debdf5e0c3'),
+            'secret'  => env('WECHAT_MINI_PROGRAM_SECRET', '527a07d3dfd4b53b5510dd3a5d350be3'),
             'token'   => env('WECHAT_MINI_PROGRAM_TOKEN', 'lingpaoxiaoyuan'),
             'aes_key' => env('WECHAT_MINI_PROGRAM_AES_KEY', 'RVD07oK0rhfzNIB0govh0faaeI2AnNRI7IawvmA1JKI'),
             'template_id' => [
