@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
-use App\Repositories\Eloquent\PageRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Models\User;
