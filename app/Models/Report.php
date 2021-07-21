@@ -15,4 +15,12 @@ class Report extends BaseModel
 
     protected $config = 'model.report.report';
 
+    public function appointment()
+    {
+        return $this->belongsTo('App\Models\Appointment');
+    }
+    public function project()
+    {
+        return $this->belongsTo('App\Models\Project');
+    }
 }

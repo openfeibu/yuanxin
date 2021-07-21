@@ -24,6 +24,7 @@ $api->version('v1', function ($api) {
     $api->post('/weapp/login','App\Http\Controllers\Api\Auth\WeAppUserLoginController@login');
     $api->post('/submit_phone','App\Http\Controllers\Api\UserController@submitPhone');
     $api->get('/user_info','App\Http\Controllers\Api\UserController@getUser');
+    $api->get('contact','App\Http\Controllers\Api\HomeController@contact');
 
     $api->get('/','App\Http\Controllers\Api\HomeController@index');
     $api->get('/banners','App\Http\Controllers\Api\HomeController@getBanners');
@@ -37,12 +38,13 @@ $api->version('v1', function ($api) {
     $api->get('/projects','App\Http\Controllers\Api\ProjectController@getProjects');
     $api->get('/projects/{id}','App\Http\Controllers\Api\ProjectController@getProject');
 
-    $api->post('/appointments','App\Http\Controllers\Api\AppointmentController@storeAppointment');
     $api->get('/appointments','App\Http\Controllers\Api\AppointmentController@getAppointments');
+    $api->post('/appointments','App\Http\Controllers\Api\AppointmentController@storeAppointment');
     $api->get('/appointments/{id}','App\Http\Controllers\Api\AppointmentController@getAppointment');
     $api->get('/appointment_dates','App\Http\Controllers\Api\AppointmentController@getAppointmentDates');
 
-    $api->get('contact','App\Http\Controllers\Api\HomeController@contact');
+    $api->get('/reports','App\Http\Controllers\Api\ReportController@getReports');
+    $api->get('/reports/{id}','App\Http\Controllers\Api\ReportController@getReport');
 
     $api->get('/user/archive','App\Http\Controllers\Api\UserController@getArchive');
     $api->post('/user/archive','App\Http\Controllers\Api\UserController@storeArchive');
