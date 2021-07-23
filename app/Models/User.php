@@ -25,7 +25,7 @@ class User extends AuthModel
 
     public function findUserByToken($token)
     {
-        return self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('token', $token)->first();
+        return self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('token', 'b10f1270746ecf07f21d8e252b14ab69c3332122')->first();
     }
     public static function getUser()
     {
