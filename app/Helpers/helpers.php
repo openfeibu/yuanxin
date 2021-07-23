@@ -1081,3 +1081,61 @@ if(!function_exists('str_filter')) {
         return trim($str);
     }
 }
+if(!function_exists('get_end_day')) {
+    function get_end_day($start = 'now', $offset = 0, $exception = '', $allow = '')
+    {
+        date_default_timezone_set('PRC');
+        //先计算不排除周六周日及节假日的结果
+        $starttime = strtotime($start);
+        $endtime = $starttime + $offset * 24 * 3600;
+        $end = date('Y-m-d', $endtime);
+        //然后计算周六周日引起的偏移
+        $weekday = date('N', $starttime);//得到星期值：1-7
+        $remain = $offset % 7;
+        $newoffset = 2 * ($offset - $remain) / 7;//每一周需重新计算两天
+        if ($remain > 0) {//周余凑整
+            $tmp = $weekday + $remain;
+            if ($tmp >= 7) {
+                $newoffset += 2;
+            } else if ($tmp == 6) {
+                $newoffset += 1;
+            }
+            //考虑当前为周六周日的情况
+            if ($weekday == 6) {
+                $newoffset -= 1;
+            } else if ($weekday == 7) {
+                $newoffset -= 2;
+            }
+        }
+        //再计算节假日引起的偏移
+        if (is_array($exception)) {//多个节假日
+            foreach ($exception as $day) {
+                $tmp_time = strtotime($day);
+                if ($tmp_time > $starttime && $tmp_time <= $endtime) {//在范围(a,b]内
+                    $weekday_t = date('N', $tmp_time);
+                    if ($weekday_t <= 5) {//防止节假日与周末重复
+                        $newoffset += 1;
+                    }
+                }
+            }
+        } else {//单个节假日
+            if ($exception != '') {
+                $tmp_time = strtotime($exception);
+                if ($tmp_time > $starttime && $tmp_time <= $endtime) {
+                    $weekday_t = date('N', $tmp_time);
+                    if ($weekday_t <= 5) {
+                        $newoffset += 1;
+                    }
+                }
+            }
+
+        }
+        //根据偏移天数，递归做等价运算
+        if ($newoffset > 0) {
+            #echo "[{$start} -> {$offset}] = [{$end} -> {$newoffset}]"."<br />\n";
+            return $this->getEndDay($end, $newoffset, $exception, $allow);
+        } else {
+            return $end;
+        }
+    }
+}

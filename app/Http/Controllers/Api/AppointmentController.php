@@ -108,12 +108,12 @@ class AppointmentController extends BaseController
             ->setPresenter(\App\Repositories\Presenter\Api\AppointmentListPresenter::class)
             ->where('user_id',$user->id)
             ->find($appointment->id);
-/*
+
         $aliSms = new AliSms();
         $response = $aliSms->sendSms($archive->phone, config('aliyunsms.appointment_success_sms'), [
-            'name'=> str_filter($appointment['data']['name']),
+            'name'=> $appointment['data']['name'],
             'date'=> $appointment['data']['date'].$appointment['data']['start_time'],
-            'project_name'=> str_filter($appointment['data']['project']['name']),
+            'project_name'=> $appointment['data']['project']['name'],
             'number'=> $number,
         ]);
         Sms::create([
@@ -123,11 +123,11 @@ class AppointmentController extends BaseController
             'smsable_id' => $appointment['data']['id'],
             'smsabletype_id' => 'App\Models\Appointment'
         ]);
-*/
         return $this->response->success()->message("预约成功！")->data($appointment['data'])->json();
     }
     public function getAppointmentDates(Request $request)
     {
+        var_dump(get_end_day());exit;
         $appointment_dates = $this->appointmentDateRepository->setPresenter(\App\Repositories\Presenter\Api\AppointmentDatePresenter::class)
             ->orderBy('start_time','asc')
             ->get()['data'];
