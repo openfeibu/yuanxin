@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\BaseController;
 use App\Models\Banner;
 use App\Models\Setting;
 use Log;
+use Mail;
 
 class HomeController extends BaseController
 {
@@ -21,15 +22,7 @@ class HomeController extends BaseController
     }
     public function index(Request $request)
     {
-        $limit = $request->input('limit');
-        $data = $this->repository
-            ->setPresenter(\App\Repositories\Presenter\PageListPresenter::class)
-            ->getDataTable($limit);
 
-        return [
-            'code' => '200',
-            'data' => $data,
-        ];
     }
     public function getBanners(Request $request)
     {
@@ -50,4 +43,16 @@ class HomeController extends BaseController
              'tel' => setting('tel'),
          ])->json();
      }
+    public function test()
+    {
+        $email = '1270864834@qq.com';
+        $html = "<div class='1'>您好，请明天九点前过来上班</div>";
+        $send = Mail::html($html, function($message) use($email) {
+            $message->from(config('mail.from')['address'],config('mail.from')['name']);
+            $message->subject('['.config('app.name').'] 邀请好友');
+            $message->to($email);
+        });
+        var_dump($send);exit;
+
+    }
 }

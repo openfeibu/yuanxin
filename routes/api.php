@@ -27,6 +27,8 @@ $api->version('v1', function ($api) {
     $api->get('contact','App\Http\Controllers\Api\HomeController@contact');
 
     $api->get('/','App\Http\Controllers\Api\HomeController@index');
+    $api->get('/test','App\Http\Controllers\Api\HomeController@test');
+
     $api->get('/banners','App\Http\Controllers\Api\HomeController@getBanners');
     $api->get('/pages','App\Http\Controllers\Api\PageController@getPages');
     $api->get('/pages/{id}','App\Http\Controllers\Api\PageController@getPage');
@@ -45,6 +47,8 @@ $api->version('v1', function ($api) {
 
     $api->get('/reports','App\Http\Controllers\Api\ReportController@getReports');
     $api->get('/reports/{id}','App\Http\Controllers\Api\ReportController@getReport');
+
+    $api->post('/report_files/mails','App\Http\Controllers\Api\ReportController@sendMail');
 
     $api->get('/user/archive','App\Http\Controllers\Api\UserController@getArchive');
     $api->post('/user/archive','App\Http\Controllers\Api\UserController@storeArchive');

@@ -15,14 +15,14 @@ class Appointment extends BaseModel
 
     protected $config = 'model.appointment.appointment';
 
-    protected $appends = ['number'];
+    //protected $appends = ['number'];
 
-    public function getNumberAttribute()
-    {
-        $number =  $this->attributes['id'] ? ($this->attributes['id'] < 10000 ? sprintf("%05d", $this->attributes['id']) : $this->attributes['id']) : '';
-        $number = 'YX'.$number;
-        return $number;
-    }
+//    public function getNumberAttribute()
+//    {
+//        $number =  $this->attributes['id'] ? ($this->attributes['id'] < 10000 ? sprintf("%05d", $this->attributes['id']) : $this->attributes['id']) : '';
+//        $number = 'YX'.$number;
+//        return $number;
+//    }
     public function project()
     {
         return $this->belongsTo('App\Models\Project');

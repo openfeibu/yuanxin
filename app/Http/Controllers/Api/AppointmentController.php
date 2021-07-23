@@ -94,6 +94,8 @@ class AppointmentController extends BaseController
             'phone' => $archive->phone,
             'idcard' => $archive->idcard,
         ]);
+        $number = 'YX'.($appointment->id < 10000 ? sprintf("%05d", $appointment->id) : $appointment->id);
+        $appointment->update(['number' => $number]);
         $appointment = $this->appointmentRepository
             ->setPresenter(\App\Repositories\Presenter\Api\AppointmentListPresenter::class)
             ->where('user_id',$user->id)

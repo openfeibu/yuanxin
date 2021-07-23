@@ -54,4 +54,8 @@ class User extends AuthModel
         }
         return $user;
     }
+    public function archive()
+    {
+        return $this->hasOne('App\Models\Archive');
+    }
 }

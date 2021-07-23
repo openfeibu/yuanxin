@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', '1270864834@qq.com'),
-        'name' => env('MAIL_FROM_NAME', '官网'),
+        'name' => env('MAIL_FROM_NAME', '源心再生健康服务'),
     ],
 
     /*
@@ -86,7 +86,7 @@ return [
 
     'username' => env('MAIL_USERNAME','1270864834@qq.com'),
 
-    'password' => env('MAIL_PASSWORD','xgjxxqakacovhigb'),
+    'password' => env('MAIL_PASSWORD','truukqxpweumgaac'),
 
     /*
     |--------------------------------------------------------------------------
