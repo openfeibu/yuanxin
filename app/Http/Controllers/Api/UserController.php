@@ -112,7 +112,7 @@ class UserController extends BaseController
                 throw new \App\Exceptions\RequestSuccessException("更新成功！");
             }else{
                 $this->archiveRepository->create([
-                    'user_id' => $user->id,
+                    'user_id' => $this->user->id,
                     'name' => $request->name,
                     'phone' => $request->phone,
                     'idcard' => $request->idcard,

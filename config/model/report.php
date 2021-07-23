@@ -30,6 +30,7 @@ return [
         'search'        => [
 
         ],
+        'status' => ['good','abnormal'],
     ],
     'report_file'     => [
         'model'        => 'App\Models\ReportFile',

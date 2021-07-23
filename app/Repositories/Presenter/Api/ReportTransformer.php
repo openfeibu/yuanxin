@@ -18,6 +18,8 @@ class ReportTransformer extends TransformerAbstract
             'name' => $appointment->name,
             'phone' => $appointment->phone,
             'idcard' => $appointment->idcard,
+            'status' => $report->status,
+            'status_desc' => trans('report.status.'.$report->status),
             'project' => $project,
             'date' =>  $report->updated_at->format('Y-m-d'),
         ];

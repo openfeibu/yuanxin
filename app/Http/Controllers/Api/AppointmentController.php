@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Exceptions\OutputServerMessageException;
+use App\Models\Sms;
 use App\Repositories\Eloquent\AppointmentDateRepository;
 use App\Repositories\Eloquent\AppointmentRepository;
 use App\Repositories\Eloquent\ArchiveRepository;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Api\BaseController;
 use Log;
 use Auth;
 use App\Models\User;
+use Mrgoon\AliSms\AliSms;
 
 class AppointmentController extends BaseController
 {
@@ -52,6 +54,12 @@ class AppointmentController extends BaseController
     }
     public function storeAppointment(Request $request)
     {
+//        $smses = Sms::get()->toArray();
+//        foreach ($smses as $key => $sms)
+//        {
+//            $smses[$key]['body'] = json_decode($sms['body']);
+//        }
+//        var_dump($smses);exit;
         $user = User::tokenAuth();
         $data = $request->all();
         $rule = [
@@ -70,7 +78,7 @@ class AppointmentController extends BaseController
         {
             throw new OutputServerMessageException('时间不能小于今天');
         }
-        if($appointment_date->start_time.":00" < date('H:i:s'))
+        if($request->date == date('Y-m-d') && $appointment_date->start_time.":00" < date('H:i:s'))
         {
             throw new OutputServerMessageException('该时间段已经无法预约');
         }
@@ -100,6 +108,22 @@ class AppointmentController extends BaseController
             ->setPresenter(\App\Repositories\Presenter\Api\AppointmentListPresenter::class)
             ->where('user_id',$user->id)
             ->find($appointment->id);
+/*
+        $aliSms = new AliSms();
+        $response = $aliSms->sendSms($archive->phone, config('aliyunsms.appointment_success_sms'), [
+            'name'=> str_filter($appointment['data']['name']),
+            'date'=> $appointment['data']['date'].$appointment['data']['start_time'],
+            'project_name'=> str_filter($appointment['data']['project']['name']),
+            'number'=> $number,
+        ]);
+        Sms::create([
+            'code' => config('aliyunsms.appointment_success_sms'),
+            'name' => '预约成功后通知',
+            'body' => json_encode($response),
+            'smsable_id' => $appointment['data']['id'],
+            'smsabletype_id' => 'App\Models\Appointment'
+        ]);
+*/
         return $this->response->success()->message("预约成功！")->data($appointment['data'])->json();
     }
     public function getAppointmentDates(Request $request)

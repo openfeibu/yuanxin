@@ -180,6 +180,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         //Teepluss\Theme\ThemeServiceProvider::class,
         Overtrue\LaravelWeChat\ServiceProvider::class,
+        Mrgoon\AliSms\ServiceProvider::class,
     ],
 
     /*
