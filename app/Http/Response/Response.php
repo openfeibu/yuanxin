@@ -237,7 +237,7 @@ abstract class Response
     }
     public function success($message=NULL)
     {
-        $this->code = '0';
+        $this->code = 0;
         $this->status = 'success';
         $this->message = $message;
         return $this;

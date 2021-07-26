@@ -138,7 +138,6 @@ class AppointmentController extends BaseController
                 'start_time' => $appointment_date['start_time'],
             ])->count();
             $appointment_dates[$key]['remaining_count'] = $appointment_date['count'] - $appointed_count;
-
         }
         return $this->response->success()->data($appointment_dates)->json();
     }
