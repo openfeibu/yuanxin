@@ -58,7 +58,7 @@ class ReportController extends BaseController
         $report_files_arr = [];
         foreach ($report_files as $key => $report_file)
         {
-            $report_file->url = $report_file->url ? handle_image_url($report_file->url,config('app.url').'/image/download') : '';
+            $report_file->url = $report_file->url ? handle_image_url($report_file->url,config('app.image_url').'/image/download') : '';
             if(isset($report_files_arr[$report_file->updated_at->format('Y-m-d')]))
             {
                 $data = [];

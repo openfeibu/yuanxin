@@ -1139,3 +1139,22 @@ if(!function_exists('get_end_day')) {
         }
     }
 }
+/**
+ * 获取最近七天所有日期
+ */
+if (!function_exists('get_weeks')) {
+    function get_weeks($time = '', $format = 'Y-m-d',$workday=false)
+    {
+        $time = $time != '' ? $time : time();
+        //组合数据
+        $date = [];
+        for ($i = 1; $i <= 7; $i++) {
+            if($workday)
+            {
+
+            }
+            $date[$i] = date($format, strtotime('+' . $i - 7 . ' days', $time));
+        }
+        return $date;
+    }
+}
