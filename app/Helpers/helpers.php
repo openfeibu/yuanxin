@@ -1140,21 +1140,36 @@ if(!function_exists('get_end_day')) {
     }
 }
 /**
- * 获取最近七天所有日期
+ * 获取未来 N 天所有日期
  */
-if (!function_exists('get_weeks')) {
-    function get_weeks($time = '', $format = 'Y-m-d',$workday=false)
+if (!function_exists('get_future_days')) {
+    function get_future_days($time = '', $format = 'Y-m-d',$days = 7,$workday=false)
     {
         $time = $time != '' ? $time : time();
         //组合数据
-        $date = [];
-        for ($i = 1; $i <= 7; $i++) {
+        $dates = [];
+        $i = $j = 1 ;
+        while($i<=$days)
+        {
             if($workday)
             {
-
+                $date = date($format, strtotime('+' . $j - 1 . ' days', $time));
+                $w = date('w',strtotime($date));
+                if($w == 0 || $w == 6)
+                {
+                    $j++;
+                    continue;
+                }
+                else{
+                    $dates[$i] = date($format, strtotime('+' . $j - 1 . ' days', $time));
+                    $i++;$j++;
+                }
+            }else{
+                $dates[$i] = date($format, strtotime('+' . $j - 1 . ' days', $time));
+                $i++;
             }
-            $date[$i] = date($format, strtotime('+' . $i - 7 . ' days', $time));
         }
-        return $date;
+
+        return $dates;
     }
 }

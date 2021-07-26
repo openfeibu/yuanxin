@@ -127,18 +127,33 @@ class AppointmentController extends BaseController
     }
     public function getAppointmentDates(Request $request)
     {
-        var_dump(get_end_day());exit;
-        $appointment_dates = $this->appointmentDateRepository->setPresenter(\App\Repositories\Presenter\Api\AppointmentDatePresenter::class)
+        $dates = get_future_days('','Y-m-d',7,true);
+
+        $appointment_times = $this->appointmentDateRepository->setPresenter(\App\Repositories\Presenter\Api\AppointmentDatePresenter::class)
             ->orderBy('start_time','asc')
             ->get()['data'];
-        foreach ($appointment_dates as $key => $appointment_date)
+        $full_dates = [];
+        foreach ($dates as $key => $date)
         {
-            $appointed_count = $this->appointmentRepository->where([
-                'date' => $request->date,
-                'start_time' => $appointment_date['start_time'],
-            ])->count();
-            $appointment_dates[$key]['remaining_count'] = $appointment_date['count'] - $appointed_count;
+            foreach ($appointment_times as $key => $appointment_time)
+            {
+                $appointed_count = $this->appointmentRepository->where([
+                    'date' => $date,
+                    'start_time' => $appointment_time['start_time'],
+                ])->count();
+                $appointment_times[$key]['remaining_count'] = $appointment_time['count'] - $appointed_count;
+                $appointment_times[$key]['available'] = 1;
+                if($appointment_times[$key]['remaining_count'] == 0 || ($date == date('Y-m-d') && $appointment_time['start_time'] < date('H:i')))
+                {
+                    $appointment_times[$key]['available'] = 0;
+                }
+            }
+            $full_dates[$date] = $appointment_times;
         }
-        return $this->response->success()->data($appointment_dates)->json();
+
+        return $this->response->success()->data([
+            'dates' => $dates,
+            'full_dates' => $full_dates,
+        ])->json();
     }
 }
