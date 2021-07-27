@@ -49,16 +49,20 @@ Route::group([
     Route::resource('permission', 'PermissionResourceController');
     Route::resource('role', 'RoleResourceController');
 
-    Route::group(['prefix' => 'case','as' => 'case.'], function ($router) {
-        Route::resource('case', 'CaseResourceController');
-        Route::post('/case/destroyAll', 'CaseResourceController@destroyAll')->name('case.destroy_all');
-        Route::resource('category', 'CaseCategoryResourceController');
-        Route::post('/category/destroyAll', 'CaseCategoryResourceController@destroyAll')->name('category.destroy_all');
-    });
-
     Route::group(['prefix' => 'page','as' => 'page.','namespace' => 'Page'], function ($router) {
         Route::resource('system', 'SystemResourceController');
         Route::post('/system/destroyAll', 'SystemResourceController@destroyAll')->name('system.destroy_all');
+
+        /*董事长致辞*/
+        Route::get('/chairman', 'ChairmanResourceController@show')->name('chairman.index');
+        Route::get('/chairman/show', 'ChairmanResourceController@show')->name('chairman.show');
+        Route::post('/chairman/store', 'ChairmanResourceController@store')->name('chairman.store');
+        Route::put('/chairman/update/{page}', 'ChairmanResourceController@update')->name('chairman.update');
+
+        /*源心专家*/
+        Route::resource('expert', 'ExpertResourceController');
+        Route::post('/expert/destroyAll', 'ExpertResourceController@destroyAll')->name('expert.destroy_all');
+
     });
 
     Route::group(['prefix' => 'menu'], function ($router) {

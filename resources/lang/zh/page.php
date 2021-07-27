@@ -11,28 +11,29 @@ return [
     ],
     'label'       => [
         'name'             => 'Name',
-        'title'            => 'Title',
+        'title'            => '标题',
         'heading'          => 'Heading',
         'sub_heading'      => 'Sub heading',
         'abstract'         => 'Abstract',
-        'content'          => 'Content',
+        'content'          => '内容',
         'meta_title'       => 'Meta title',
         'meta_keyword'     => 'Meta keyword',
         'meta_description' => 'Meta description',
-        'banner'           => 'Banner',
+        'image'            => '封面',
         'images'           => 'Images',
         'compile'          => 'Compile',
         'view'             => 'View',
         'order'            => 'Order',
-        'status'           => 'Status',
-        'status'           => 'Status',
+        'status'           => '显示/隐藏',
         'keyword'          => 'Keyword',
-        'description'      => 'Description',
-        'slug'             => 'Slug',
+        'description'      => '描述',
+        'slug'             => '标识',
         'url'              => 'Url',
         'created_at'       => 'Created at',
         'updated_at'       => 'Updated at',
         'category_id'      => 'Category',
+        'home_recommend'   => '首页推荐',
+        'hot_recommend'    => '头条推荐',
     ],
     'placeholder' => [
         'name'             => 'Please enter name',
@@ -79,5 +80,9 @@ return [
     ],
     'text'        => [
         'preview' => 'Click on the below list for preview',
+    ],
+
+    'chairman' => [
+        'name' => '董事长致辞'
     ],
 ];

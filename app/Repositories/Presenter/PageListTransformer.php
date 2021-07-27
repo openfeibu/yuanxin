@@ -21,8 +21,8 @@ class PageListTransformer extends TransformerAbstract
             'order'   => $page->order,
             'home_recommend' => $page->recommend_type == 'home' ? true : false,
             'category_id' => $page->category_id,
-            'created_at' => $page->created_at,
-            'updated_at' => $page->updated_at,
+            'created_at' => format_date($page->created_at,'Y-m-d H:i:s'),
+            'updated_at' => format_date($page->updated_at,'Y-m-d H:i:s'),
             'category_name' => $page->category->name,
         ];
     }

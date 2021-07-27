@@ -95,6 +95,7 @@ class AppointmentController extends BaseController
         $appointment = $this->appointmentRepository->create([
             'user_id' => $user->id,
             'date' => $request->date,
+            'note' => $request->note ?? '',
             'start_time' => $appointment_date->start_time,
             'end_time' => $appointment_date->end_time,
             'project_id' => $request->project_id,
