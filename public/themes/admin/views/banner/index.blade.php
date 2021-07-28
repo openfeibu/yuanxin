@@ -5,7 +5,7 @@
         <div class="layui-col-md12">
             <div class="tabel-message">
                 <div class="layui-inline tabel-btn">
-                    <button class="layui-btn layui-btn-warm "><a href="{{ url('/admin/banner/create') }}">{{ trans('app.add') }}轮播图</a></button>
+                    <button class="layui-btn layui-btn-warm "><a href="{{ url('/admin/banner/create') }}">{{ trans('app.add') }}</a></button>
                     <button class="layui-btn layui-btn-primary " data-type="del" data-events="del">{{ trans('app.delete') }}</button>
                 </div>
                 <!--  <div class="layui-inline">

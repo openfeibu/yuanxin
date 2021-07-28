@@ -28,26 +28,17 @@ Route::group([
     Route::resource('banner', 'BannerResourceController');
     Route::post('/banner/destroyAll', 'BannerResourceController@destroyAll');
 
-    Route::resource('news', 'NewsResourceController');
-    Route::post('/news/destroyAll', 'NewsResourceController@destroyAll')->name('news.destroy_all');
-    Route::post('/news/updateRecommend', 'NewsResourceController@updateRecommend')->name('news.update_recommend');
+
+    /* 系统文章 */
     Route::resource('system_page', 'SystemPageResourceController');
     Route::post('/system_page/destroyAll', 'SystemPageResourceController@destroyAll')->name('system_page.destroy_all');
+
     Route::get('/setting/company', 'SettingResourceController@company')->name('setting.company.index');
     Route::post('/setting/updateCompany', 'SettingResourceController@updateCompany');
     Route::get('/setting/publicityVideo', 'SettingResourceController@publicityVideo')->name('setting.publicity_video.index');
     Route::post('/setting/updatePublicityVideo', 'SettingResourceController@updatePublicityVideo');
     Route::get('/setting/station', 'SettingResourceController@station')->name('setting.station.index');
     Route::post('/setting/updateStation', 'SettingResourceController@updateStation');
-
-    Route::resource('link', 'LinkResourceController');
-    Route::post('/link/destroyAll', 'LinkResourceController@destroyAll')->name('link.destroy_all');
-
-    Route::resource('message', 'MessageResourceController');
-    Route::post('/message/destroyAll', 'MessageResourceController@destroyAll')->name('message.destroy_all');
-
-    Route::resource('permission', 'PermissionResourceController');
-    Route::resource('role', 'RoleResourceController');
 
     Route::group(['prefix' => 'page','as' => 'page.','namespace' => 'Page'], function ($router) {
         Route::resource('system', 'SystemResourceController');
@@ -75,8 +66,10 @@ Route::group([
         Route::resource('feature', 'FeatureResourceController');
         Route::post('/feature/destroyAll', 'FeatureResourceController@destroyAll')->name('feature.destroy_all');
 
-
     });
+    /* 项目列表 */
+    Route::resource('project', 'ProjectResourceController');
+    Route::post('/project/destroyAll', 'ProjectResourceController@destroyAll')->name('project.destroy_all');
 
     Route::group(['prefix' => 'menu'], function ($router) {
         Route::get('index', 'MenuResourceController@index');
@@ -102,7 +95,6 @@ Route::group([
 
     Route::resource('user', 'UserResourceController');
     Route::post('/user/destroyAll', 'UserResourceController@destroyAll')->name('user.destroy_all');
-
     Route::resource('admin_user', 'AdminUserResourceController');
     Route::post('/admin_user/destroyAll', 'AdminUserResourceController@destroyAll')->name('admin_user.destroy_all');
     Route::resource('permission', 'PermissionResourceController');
@@ -110,6 +102,18 @@ Route::group([
     Route::resource('role', 'RoleResourceController');
     Route::post('/role/destroyAll', 'RoleResourceController@destroyAll')->name('role.destroy_all');
     Route::get('logout', 'Auth\LoginController@logout');
+
+
+    Route::resource('news', 'NewsResourceController');
+    Route::post('/news/destroyAll', 'NewsResourceController@destroyAll')->name('news.destroy_all');
+    Route::post('/news/updateRecommend', 'NewsResourceController@updateRecommend')->name('news.update_recommend');
+
+    Route::resource('link', 'LinkResourceController');
+    Route::post('/link/destroyAll', 'LinkResourceController@destroyAll')->name('link.destroy_all');
+
+    Route::resource('message', 'MessageResourceController');
+    Route::post('/message/destroyAll', 'MessageResourceController@destroyAll')->name('message.destroy_all');
+
 });
 Route::group([
     'namespace' => 'Pc',

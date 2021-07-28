@@ -9,7 +9,7 @@
                     <button class="layui-btn layui-btn-primary " data-type="del" data-events="del">{{ trans('app.delete') }}</button>
                 </div>
                 <div class="layui-inline">
-                    <input class="layui-input search_key" name="title" id="demoReload" placeholder="{{ trans('app.search') }}标题" autocomplete="off">
+                    <input class="layui-input search_key" name="title" id="demoReload" placeholder="{{ trans('app.search') }}{{ trans('app.title') }}" autocomplete="off">
                 </div>
                 <button class="layui-btn" data-type="reload">{{ trans('app.search') }}</button>
             </div>
@@ -44,10 +44,10 @@
             ,cols: [[
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
-                ,{field:'title',title:'标题', width:200}
-                ,{field:'image',title:'封面', toolbar:'#imageTEM'}
+                ,{field:'title',title:'{{ trans('app.title') }}', width:200}
+                ,{field:'image',title:'{{ trans('page.label.image') }}', toolbar:'#imageTEM'}
                 ,{field:'home_recommend',title:'首页推荐', width:200,toolbar:'#checkboxTEM' }
-//                ,{field:'order',title:'排序', width:80, sort: true}
+//                ,{field:'order',title:'{{ trans('app.order') }}', width:80, sort: true}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',fixed: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'

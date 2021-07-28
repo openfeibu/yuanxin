@@ -44,7 +44,7 @@
                 ,{field:'id',title:'ID', width:80, sort: true}
                 ,{field:'name',title:'分类名称',edit: 'text', minWidth:100}
                 ,{field:'slug',title:'标识',edit: 'text', minWidth:100}
-                ,{field:'order',title:'排序',edit: 'text', minWidth:100}
+                ,{field:'order',title:'{{ trans('app.order') }}',edit: 'text', minWidth:100}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'

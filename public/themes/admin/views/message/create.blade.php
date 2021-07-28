@@ -12,20 +12,20 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">图片</label>
+                        <label class="layui-form-label">{{ trans('app.image') }}</label>
                         {!! $link->files('image')
                         ->url($link->getUploadUrl('image'))
                         ->uploader()!!}
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">排序</label>
+                        <label class="layui-form-label">{{ trans('app.order') }}</label>
                         <div class="layui-input-inline">
                             <input type="text" name="order" autocomplete="off" placeholder="" class="layui-input" value="0">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                            <button class="layui-btn" lay-submit="" lay-filter="demo1">{{ trans('app.submit_now') }}</button>
                         </div>
                     </div>
                     {!!Form::token()!!}

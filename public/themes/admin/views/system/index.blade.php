@@ -43,9 +43,9 @@
             ,cols: [[
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
-                ,{field:'title',title:'标题', width:200}
-                ,{field:'slug',title:'标示', width:200}
-                ,{field:'image',title:'封面', toolbar:'#imageTEM',}
+                ,{field:'title',title:'{{ trans('app.title') }}', width:200}
+                ,{field:'slug',title:'{{ trans('app.slug') }}', width:200}
+                ,{field:'image',title:'{{ trans('page.label.image') }}', toolbar:'#imageTEM',}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'

@@ -44,7 +44,7 @@
                 ,{field:'image',title:'图标', toolbar:'#imageTEM',}
                 ,{field:'url',title:'链接', width:100}
                 ,{field:'category_name',title:'分类', width:200}
-                ,{field:'order',title:'排序', width:100}
+                ,{field:'order',title:'{{ trans('app.order') }}', width:100}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'

@@ -48,7 +48,7 @@
                 ,{field:'title',title:'{{ trans('page.label.title') }}',edit:'text' }
                 ,{field:'image',title:'{{ trans('page.label.image') }}', toolbar:'#imageTEM',width:100}
                 ,{field:'description',title:'{{ trans('page.label.description') }}', width:200,edit:'text'}
-                ,{field:'order',title:'排序', width:80, sort: true,edit:'text'}
+                ,{field:'order',title:'{{ trans('app.order') }}', width:80, sort: true,edit:'text'}
                 ,{field:'updated_at',title:'{{ trans('app.updated_at') }}', width:200}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',fixed: 'right',toolbar:'#barDemo'}
             ]]

@@ -6,9 +6,9 @@
             <div class="fb-main-table">
                 <form class="layui-form" action="{{guard_url('recruit/'.$recruit->id)}}" method="post" method="post" lay-filter="fb-form">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">标题</label>
+                        <label class="layui-form-label">{{ trans('app.title') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="{{$recruit['title']}}">
+                            <input type="text" name="title" autocomplete="off" placeholder="请输入{{ trans('app.title') }}" class="layui-input" value="{{$recruit['title']}}">
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">图片</label>
+                        <label class="layui-form-label">{{ trans('app.image') }}</label>
                         {!! $recruit->files('image')
                         ->url($recruit->getUploadUrl('image'))
                         ->uploader()!!}
@@ -44,7 +44,7 @@
 
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                            <button class="layui-btn" lay-submit="" lay-filter="demo1">{{ trans('app.submit_now') }}</button>
                         </div>
                     </div>
                     {!!Form::token()!!}

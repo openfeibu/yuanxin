@@ -6,25 +6,25 @@
             <div class="fb-main-table">
                 <form class="layui-form" action="{{guard_url('system_page/'.$page->id)}}" method="post" lay-filter="fb-form">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">标题</label>
+                        <label class="layui-form-label">{{ trans('app.title') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="{{$page->title}}">
+                            <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入{{ trans('app.title') }}" class="layui-input" value="{{$page->title}}">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">标示</label>
+                        <label class="layui-form-label">{{ trans('app.slug') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="slug" lay-verify="title" autocomplete="off" placeholder="请输入标示" class="layui-input" value="{{$page->slug}}">
+                            <input type="text" name="slug" lay-verify="title" autocomplete="off" placeholder="请输入{{ trans('app.slug') }}" class="layui-input" value="{{$page->slug}}">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">封面</label>
+                        <label class="layui-form-label">{{ trans('page.label.image') }}</label>
                         {!! $page->files('image')
                         ->url($page->getUploadUrl('image'))
                         ->uploader()!!}
                     </div>
                     <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">内容</label>
+                        <label class="layui-form-label">{{ trans('app.content') }}</label>
                         <div class="layui-input-block">
                             <script type="text/plain" id="content" name="content" style="width:1000px;height:240px;">
                                 {!! $page->content !!}
@@ -33,7 +33,7 @@
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                            <button class="layui-btn" lay-submit="" lay-filter="demo1">{{ trans('app.submit_now') }}</button>
                         </div>
                     </div>
                     {!!Form::token()!!}

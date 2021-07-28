@@ -5,7 +5,7 @@
         <div class="layui-col-md12">
             <div class="tabel-message">
                 <div class="layui-inline tabel-btn">
-                    <button class="layui-btn layui-btn-warm "><a href="{{guard_url('recruit/create')}}">{{ trans('app.add') }}招聘信息</a></button>
+                    <button class="layui-btn layui-btn-warm "><a href="{{ url('/admin/project/create') }}">{{ trans('app.add') }}</a></button>
                     <button class="layui-btn layui-btn-primary " data-type="del" data-events="del">{{ trans('app.delete') }}</button>
                 </div>
             </div>
@@ -16,7 +16,6 @@
         </div>
     </div>
 </div>
-
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-sm" lay-event="edit">{{ trans('app.edit') }}</a>
     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">{{ trans('app.delete') }}</a>
@@ -24,35 +23,28 @@
 <script type="text/html" id="imageTEM">
     <img src="@{{d.image}}" alt="" height="28">
 </script>
-
 <script>
-    var main_url = "{{guard_url('recruit')}}";
-    var delete_all_url = "{{guard_url('recruit/destroyAll')}}";
+    var main_url = "{{guard_url('project')}}";
+    var delete_all_url = "{{guard_url('project/destroyAll')}}";
     layui.use(['jquery','element','table'], function(){
+        var $ = layui.$;
         var table = layui.table;
         var form = layui.form;
-        var $ = layui.$;
         table.render({
             elem: '#fb-table'
-            ,url: main_url
+            ,url: '{{guard_url('project')}}'
             ,cols: [[
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
-                ,{field:'title',title:'{{ trans('app.title') }}', width:200}
-                ,{field:'address',title:'地址'}
-                ,{field:'salary',title:'薪水', width:200}
-                ,{field:'image',title:'{{ trans('app.image') }}', toolbar:'#imageTEM'}
-                ,{field:'requirement',title:'要求'}
-                ,{field:'duty',title:'职责'}
+                ,{field:'name',title:'{{ trans('project.label.name') }}',edit:'text'}
+                ,{field:'image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
+                ,{field:'description',title:'{{ trans('app.description') }}'}
+                ,{field:'order',title:'{{ trans('app.order') }}', sort: true}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'
-            ,page: true
-            ,limit: 20
             ,height: 'full-200'
         });
-
-
     });
 </script>
 {!! Theme::partial('common_handle_js') !!}

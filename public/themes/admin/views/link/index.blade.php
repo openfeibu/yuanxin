@@ -39,8 +39,8 @@
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
                 ,{field:'name',title:'名称', width:200}
-                ,{field:'image',title:'图片', toolbar:'#imageTEM'}
-                ,{field:'order',title:'排序', width:200}
+                ,{field:'image',title:'{{ trans('app.image') }}', toolbar:'#imageTEM'}
+                ,{field:'order',title:'{{ trans('app.order') }}', width:200}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'

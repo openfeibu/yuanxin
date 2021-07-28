@@ -10,7 +10,7 @@
                 </div>
                 <!--
                 <div class="layui-inline">
-                    <input class="layui-input search_key" name="title" id="demoReload" placeholder="{{ trans('app.search') }}标题" autocomplete="off">
+                    <input class="layui-input search_key" name="title" id="demoReload" placeholder="{{ trans('app.search') }}{{ trans('app.title') }}" autocomplete="off">
                 </div>
                 <button class="layui-btn" data-type="reload">{{ trans('app.search') }}</button>
                 -->
@@ -185,7 +185,7 @@
                 layer.open({
                     type: 1,
                     shade: false,
-                    title: '{{ trans('app.edit') }}', //不显示标题
+                    title: '{{ trans('app.edit') }}', //不显示{{ trans('app.title') }}
                     area: ['420px', '240px'], //宽高
                     content: $('.edit_folder_content'),
                     btn:['{{ trans('app.submit') }}'],
@@ -248,7 +248,7 @@
                 layer.open({
                     type: 1,
                     shade: false,
-                    title: '{{ trans('app.edit') }}', //不显示标题
+                    title: '{{ trans('app.edit') }}', //不显示{{ trans('app.title') }}
                     area: ['420px', '240px'], //宽高
                     content: $('.edit_folder_content'),
                     btn:['{{ trans('app.submit') }}'],
@@ -281,7 +281,7 @@
                 layer.open({
                     type: 1,
                     shade: false,
-                    title: '{{ trans('app.add') }}', //不显示标题
+                    title: '{{ trans('app.add') }}', //不显示{{ trans('app.title') }}
                     area: ['420px', '240px'], //宽高
                     content: $('.add_folder_content'),
                     btn:['{{ trans('app.submit') }}'],
@@ -384,7 +384,7 @@
         });
         layer.photos({
             photos: '.photos'
-            ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+            ,anim: 5 //0-6的选择，指定弹出{{ trans('app.image') }}动画类型，默认随机（请注意，3.0之前的版本用shift参数）
         });
     });
 </script>

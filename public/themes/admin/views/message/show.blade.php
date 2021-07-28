@@ -47,7 +47,7 @@
                         <div class="layimpc-chat-footer">
                             <div class="layui-unselect layimpc-chat-tool" >
                                 <span class="layui-icon layimpc-tool-face" title="选择表情" layimpc-event="face"></span>
-                                <span class="layui-icon layimpc-tool-image" title="上传图片" layimpc-event="image"><input type="file" name="file"></span>
+                                <span class="layui-icon layimpc-tool-image" title="上传{{ trans('app.image') }}" layimpc-event="image"><input type="file" name="file"></span>
                                 <span class="layui-icon layimpc-tool-image" title="发送文件" layimpc-event="image" data-type="file"><input type="file" name="file"></span>
                                 <span class="layui-icon layimpc-tool-audio" title="发送网络音频" layimpc-event="media" data-type="audio"></span>
                                 <span class="layui-icon layimpc-tool-video" title="发送网络视频" layimpc-event="media" data-type="video"></span>

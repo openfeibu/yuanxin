@@ -11,9 +11,9 @@ return [
     |
      */
 
-    'name'           => '后台管理系统',
-    'name.html'      => '<b>Lava</b>lite',
-    'name.short'     => '<b>L</b>l',
+    'station_name'           => '源心再生',
+    'station_name.html'      => '<b>源心再生</b>',
+    'station_name.short'     => '<b>源心再生</b>',
     'admin.panel'    => '管理面板',
     'dashboard'      => '仪表盘',
     'all.rights'     => "<strong>版权所有 &copy; " . date('Y') . " <a href='http://lavalite.org' target='_blank'>Lavalite</a>.</strong> 保留一切权利。",

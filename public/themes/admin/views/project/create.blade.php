@@ -4,27 +4,36 @@
         {!! Theme::partial('message') !!}
         <div class="layui-col-md12">
             <div class="fb-main-table">
-                <form class="layui-form" action="{{guard_url('system_page')}}" method="post" lay-filter="fb-form">
+                <form class="layui-form" action="{{guard_url('project')}}" method="POST" lay-filter="fb-form">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">{{ trans('app.title') }}</label>
+                        <label class="layui-form-label">{{ trans('project.label.name') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入{{ trans('app.title') }}" class="layui-input" >
+                            <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('project.label.name') }}" class="layui-input" >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">{{ trans('app.slug') }}</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="slug" lay-verify="title" autocomplete="off" placeholder="请输入{{ trans('app.slug') }}" class="layui-input" >
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">{{ trans('page.label.image') }}</label>
-                        {!! $page->files('image')
-                        ->url($page->getUploadUrl('image'))
+                        <label class="layui-form-label">{{ trans('app.image') }}</label>
+                        {!! $project->files('image')
+                        ->url($project->getUploadUrl('image'))
                         ->uploader()!!}
                     </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans('app.order') }}</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="order" autocomplete="off" placeholder="" class="layui-input" value="50" lay-verify="number">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans('app.description') }}</label>
+                        <div class="layui-input-inline">
+                            <textarea name="description" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
                     <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">{{ trans('app.content') }}</label>
+                        <label class="layui-form-label">{{ trans('project.label.content') }}</label>
                         <div class="layui-input-block">
                             <script type="text/plain" id="content" name="content" style="width:1000px;height:240px;">
 
@@ -47,4 +56,11 @@
 {!! Theme::asset()->container('ueditor')->scripts() !!}
 <script>
     var ue = getUe();
+
+    layui.use(['form','jquery'], function(){
+        var form = layui.form;
+        var $ = layui.$;
+
+    });
+
 </script>
