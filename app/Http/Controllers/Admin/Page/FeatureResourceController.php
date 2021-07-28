@@ -12,7 +12,7 @@ use Mockery\CountValidator\Exception;
 /**
  * Resource controller class for page.
  */
-class SystemResourceController extends BaseController
+class FeatureResourceController extends BaseController
 {
     /**
      * Initialize page resource controller.
@@ -24,8 +24,8 @@ class SystemResourceController extends BaseController
                                 PageCategoryRepositoryInterface $category)
     {
         parent::__construct($page,$category);
-        $this->category_slug = 'system';
-        $this->main_url = 'page/system';
+        $this->category_slug = 'feature';
+        $this->main_url = 'page/feature';
         $this->view_folder = $this->category_slug;
         $category_data = $category->where(['slug' => $this->category_slug])->first();
         $this->category_data = $category_data;
@@ -50,7 +50,7 @@ class SystemResourceController extends BaseController
             $data = $this->repository
                 ->setPresenter(\App\Repositories\Presenter\PageListPresenter::class)
                 ->orderBy('order','asc')
-                ->orderBy('id','asc')
+                ->orderBy('id','desc')
                 ->getDataTable($limit);
             return $this->response
                 ->success()
@@ -58,21 +58,21 @@ class SystemResourceController extends BaseController
                 ->data($data['data'])
                 ->output();
         }
-        return $this->response->title(trans('app.admin.panel'))
+        return $this->response->title(trans($this->category_slug.'.name'))
             ->view($this->category_slug.'.index')
             ->output();
     }
-    public function show(PageRequest $request,Page $system)
+    public function show(PageRequest $request,Page $feature)
     {
-        return parent::show($request,$system);
+        return parent::show($request,$feature);
     }
-    public function update(PageRequest $request,Page $system)
+    public function update(PageRequest $request,Page $feature)
     {
-        return parent::update($request,$system);
+        return parent::update($request,$feature);
     }
-    public function destroy(PageRequest $request,Page $system)
+    public function destroy(PageRequest $request,Page $feature)
     {
-        return parent::destroy($request,$system);
+        return parent::destroy($request,$feature);
     }
 
 }

@@ -25,7 +25,7 @@
     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">{{ trans('app.delete') }}</a>
 </script>
 <script type="text/html" id="imageTEM">
-    <img src="@{{d.image}}" alt="" height="28">
+    <a href="@{{d.image}}" target="_blank"><img src="@{{d.sm_image}}" alt="" height="28"></a>
 </script>
 <script>
     var main_url = "{{guard_url('banner')}}";
@@ -41,7 +41,7 @@
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
                 ,{field:'title',title:'{{ trans('app.title') }}', sort: true,edit:'text'}
-                ,{field:'image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
+                ,{field:'sm_image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
                 ,{field:'url',title:'{{ trans('banner.label.url') }}', sort: true}
                 ,{field:'order',title:'{{ trans('app.order') }}', sort: true}
                 ,{field:'type_desc',title:'{{ trans('app.type') }}', sort: true}

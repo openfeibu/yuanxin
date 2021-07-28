@@ -23,6 +23,7 @@ class SystemPageResourceController extends BaseController
         $this->request = $request;
         $this->category_slug = 'system';
         $this->main_url = 'system_page';
+        $this->view_folder = $this->category_slug;
         if($category_name = $this->request->input('category_name',''))
         {
             $this->category_slug = $category_name;
@@ -34,6 +35,7 @@ class SystemPageResourceController extends BaseController
             ->pushCriteria(\App\Repositories\Criteria\RequestCriteria::class)
             ->pushCriteria(\App\Repositories\Criteria\PageResourceCriteria::class);
     }
+
     public function show(PageRequest $request,Page $system_page)
     {
         return parent::show($request,$system_page);

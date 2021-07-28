@@ -29,7 +29,7 @@
     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">{{ trans('app.delete') }}</a>
 </script>
 <script type="text/html" id="imageTEM">
-    <a href="@{{d.image}}" target="_blank"><img src="@{{d.image}}" alt="" height="28"></a>
+    <a href="@{{d.image}}" target="_blank"><img src="@{{d.sm_image}}" alt="" height="28"></a>
 </script>
 
 <script>

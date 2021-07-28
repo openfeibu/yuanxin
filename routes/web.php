@@ -71,6 +71,11 @@ Route::group([
         Route::resource('special', 'SpecialResourceController');
         Route::post('/special/destroyAll', 'SpecialResourceController@destroyAll')->name('special.destroy_all');
 
+        /*源心精选*/
+        Route::resource('feature', 'FeatureResourceController');
+        Route::post('/feature/destroyAll', 'FeatureResourceController@destroyAll')->name('feature.destroy_all');
+
+
     });
 
     Route::group(['prefix' => 'menu'], function ($router) {

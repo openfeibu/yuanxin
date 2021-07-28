@@ -38,13 +38,11 @@ class PageBaseResourceController extends BaseController
         }else{
             $this->repository = $this->repository->where(['category_id' => $this->category_id]);
         }
-
         if ($this->response->typeIs('json')) {
             $data = $this->repository
                 ->setPresenter(\App\Repositories\Presenter\PageListPresenter::class)
-                ->orderBy('hot_recommend','desc')
-                ->orderBy('order','desc')
-                //->orderBy('updated_at','desc')
+                //->orderBy('hot_recommend','desc')
+                ->orderBy('order','asc')
                 ->orderBy('id','desc')
                 ->getDataTable($limit);
             return $this->response
