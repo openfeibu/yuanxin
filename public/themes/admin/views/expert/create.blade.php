@@ -12,20 +12,17 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('page.label.slug') }}</label>
+                        <label class="layui-form-label">* {{ trans('page.label.description') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="slug" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('page.label.slug') }}" class="layui-input" >
+                            <input type="text" name="description" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('page.label.description') }}" class="layui-input" >
                         </div>
                     </div>
-                    <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">{{ trans('app.content') }}</label>
-                        <div class="layui-input-block">
-                            <script type="text/plain" id="content" name="content" style="height:240px;">
-
-                            </script>
-                        </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans('page.label.image') }}</label>
+                        {!! $page->files('image')
+                        ->url($page->getUploadUrl('image'))
+                        ->uploader()!!}
                     </div>
-
                     <div class="layui-form-item button-group"><div class="layui-input-block"><button class="layui-btn layui-btn-normal layui-btn-lg" lay-submit="" lay-filter="demo1">{{ trans('app.submit_now') }}</button></div></div>
                     {!!Form::token()!!}
                 </form>

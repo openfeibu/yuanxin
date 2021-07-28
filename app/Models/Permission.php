@@ -20,12 +20,12 @@ class Permission extends BaseModel
      *
      * @var array
      */
-     protected $config = 'model.roles.permission.model';
+    protected $config = 'model.roles.permission.model';
 
-	public function getSlugIdAttribute()
-	{
-	    return $this->slug . '.' . $this->id;
-	}
+    public function getSlugIdAttribute()
+    {
+        return $this->slug . '.' . $this->id;
+    }
 
     public function getIconHtmlAttribute()
     {
@@ -43,6 +43,10 @@ class Permission extends BaseModel
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = ($value == '#') ? '#-' . time() : $value;
+    }
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = $value ? $value : '#';
     }
 
     public function getSubPermissionAttribute()

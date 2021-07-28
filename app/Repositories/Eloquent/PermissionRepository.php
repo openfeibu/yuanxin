@@ -66,7 +66,7 @@ class PermissionRepository extends BaseRepository implements PermissionRepositor
         }
 
         // Do we have a display_name set?
-        $slug = is_null($slug) ? $name : $slug;
+        $slug = is_null($slug) ? '#' : $slug;
 
         return $permission = $this->model->create([
             'name' => $name,
@@ -111,9 +111,12 @@ class PermissionRepository extends BaseRepository implements PermissionRepositor
     {
         $menus = [];
         $father = Auth::user()->menus();
+
         if($father) {
             foreach ($father as $item) {
-                $active = ($item->slug == Route::currentRouteName()) ? true : false;
+                $item->active = ($item->slug == Route::currentRouteName()) ? true : false;
+                $item = $this->sub($item);
+                /*
                 $sub = Auth::user()->menus($item->id);
 
                 if(!$sub->isEmpty())
@@ -121,17 +124,48 @@ class PermissionRepository extends BaseRepository implements PermissionRepositor
                     foreach ($sub as $key => $sub_item)
                     {
                         $sub_item->active = $sub_item->slug == Route::currentRouteName() ? true : false;
-                        $active ? true : $active  = $sub_item->active;
+                        $item->active ? true : $item->active  = $sub_item->active;
+
+
+                        $sub_sub = Auth::user()->menus($sub_item->id);
+                        if(!$sub_sub->isEmpty())
+                        {
+                            foreach ($sub_sub as $key => $sub_sub_item) {
+                                $sub_sub_item->active = $sub_sub_item->slug == Route::currentRouteName() ? true : false;
+                                $sub_item->active ? true : $sub_item->active = $sub_sub_item->active;
+                            }
+                            $sub_item->sub = $sub_sub;
+                        }
+
+
+
+
                     }
                     $item->sub = $sub;
                 }
-
-                $item->active = $active;
+*/
                 $menus[] = $item;
             }
         }
+
         return $menus;
     }
+    public function sub($item)
+    {
+        $sub = Auth::user()->menus($item->id);
+        if(!$sub->isEmpty())
+        {
+            foreach ($sub as $key => $sub_item)
+            {
+                $sub_item->active = $sub_item->slug == Route::currentRouteName() ? true : false;
+                $sub_item->sub = $this->sub($sub_item);
+                $item->active ? true : $item->active  = $sub_item->active;
+            }
+            $item->sub = $sub;
+        }
+        return $item;
+    }
+
     public function permissions($parent_id = 0)
     {
         return $this->model->where('parent_id', $parent_id)->orderBy('order', 'asc')->orderBy('id', 'asc')->get();

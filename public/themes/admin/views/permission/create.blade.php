@@ -14,7 +14,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('permission.label.slug') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="slug" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('permission.label.slug') }}" class="layui-input" value="">
+                            <input type="text" name="slug" autocomplete="off" placeholder="请输入{{ trans('permission.label.slug') }}" class="layui-input" value="">
                         </div>
                     </div>
                     <div class="layui-form-item">

@@ -54,7 +54,7 @@ class ExpertResourceController extends BaseController
                 ->getDataTable($limit);
             return $this->response
                 ->success()
-                ->count(count($data['data']))
+                ->count($data['recordsTotal'])
                 ->data($data['data'])
                 ->output();
         }

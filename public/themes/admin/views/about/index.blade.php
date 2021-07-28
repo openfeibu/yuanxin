@@ -6,7 +6,7 @@
 
             <div class="tabel-message">
                 <div class="layui-inline tabel-btn">
-                    <button class="layui-btn layui-btn-warm "><a href="{{guard_url('page/expert/create')}}">{{ trans('app.add') }}</a></button>
+                    <button class="layui-btn layui-btn-warm "><a href="{{guard_url('page/about/create')}}">{{ trans('app.add') }}</a></button>
                     <button class="layui-btn layui-btn-primary " data-type="del" data-events="del">{{ trans('app.delete') }}</button>
                 </div>
                 <div class="layui-inline">
@@ -33,8 +33,8 @@
 </script>
 
 <script>
-    var main_url = "{{guard_url('page/expert')}}";
-    var delete_all_url = "{{guard_url('page/expert/destroyAll')}}";
+    var main_url = "{{guard_url('page/about')}}";
+    var delete_all_url = "{{guard_url('page/about/destroyAll')}}";
     layui.use(['jquery','element','table'], function(){
         var table = layui.table;
         var form = layui.form;
@@ -47,7 +47,6 @@
                 ,{field:'id',title:'ID', width:80, sort: true}
                 ,{field:'title',title:'{{ trans('page.label.title') }}',edit:'text' }
                 ,{field:'image',title:'{{ trans('page.label.image') }}', toolbar:'#imageTEM',width:100}
-                ,{field:'description',title:'{{ trans('page.label.description') }}', width:200,edit:'text'}
                 ,{field:'order',title:'排序', width:80, sort: true,edit:'text'}
                 ,{field:'updated_at',title:'{{ trans('app.updated_at') }}', width:200}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',fixed: 'right',toolbar:'#barDemo'}

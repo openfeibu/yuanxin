@@ -63,6 +63,14 @@ Route::group([
         Route::resource('expert', 'ExpertResourceController');
         Route::post('/expert/destroyAll', 'ExpertResourceController@destroyAll')->name('expert.destroy_all');
 
+        /*关于源心*/
+        Route::resource('about', 'AboutResourceController');
+        Route::post('/about/destroyAll', 'AboutResourceController@destroyAll')->name('about.destroy_all');
+
+        /*源心专刊*/
+        Route::resource('special', 'SpecialResourceController');
+        Route::post('/special/destroyAll', 'SpecialResourceController@destroyAll')->name('special.destroy_all');
+
     });
 
     Route::group(['prefix' => 'menu'], function ($router) {

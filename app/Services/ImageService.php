@@ -69,10 +69,12 @@ class ImageService
 
             Storage::put($img, file_get_contents($file->getRealPath()));
 
-            $imgs_name[$i] = $image_name;
-            $imgs_url[$i] = $usage.'/'.$image_name;
-            $imgs_url_full[$i] = url('/image/original'.$imgs_url[$i] );
+            $images_url[$i]['img_url'] = $usage.'/'.$image_name;
+            $images_url[$i]['usage'] = $usage;
+            $images_url[$i]['created_at'] = date("Y-m-d H:i:s");
 
+            $imgs_url[$i] = $images_url[$i]['img_url'];
+            $imgs_url_full[$i] = url('/image/original'.$imgs_url[$i] );
             if($is_thumb)
             {
                 $thumb = $thumb_url.'/'.$image_name;
@@ -86,7 +88,7 @@ class ImageService
                     'media_folder_id' => $media_folder_id,
                     'path' => $url,
                     'name' => $image_name,
-                    'url' => $imgs_url[$i]['img_url']
+                    'url' => $images_url[$i]['img_url']
                 ]);
             }
             $i++;
@@ -95,7 +97,6 @@ class ImageService
         if($is_thumb)
         {
             return [
-                'image_name' => $imgs_name,
                 'image_url' => $imgs_url,
                 'image_url_full' => $imgs_url_full,
                 'thumb_url'=> $thumbs_url,
@@ -103,7 +104,6 @@ class ImageService
             ];
         }
         return [
-            'image_name' => $imgs_name,
             'image_url' => $imgs_url,
             'image_url_full' => $imgs_url_full,
         ];
@@ -143,8 +143,11 @@ class ImageService
 
             Storage::put( $url.'/'.$file_name, file_get_contents($file->getRealPath()));
 
-            $files_name[$i] = $file_name;
-            $files_url[$i] = $usage.'/'.$file_name;
+            $images_url[$i]['file_url'] = $usage.'/'.$file_name;
+            $images_url[$i]['usage'] = $usage;
+            $images_url[$i]['created_at'] = date("Y-m-d H:i:s");
+
+            $files_url[$i] = $images_url[$i]['file_url'];
             $files_url_full[$i] = url('/image/original'.$files_url[$i] );
 
             if($media_folder_id)
@@ -153,17 +156,15 @@ class ImageService
                     'media_folder_id' => $media_folder_id,
                     'path' => $url,
                     'name' => $file_name,
-                    'url' => $files_url[$i]['file_url']
+                    'url' => $images_url[$i]['file_url']
                 ]);
             }
             $i++;
         }
         return [
-            'file_name' => $files_name,
             'file_url' => $files_url,
             'file_url_full' => $files_url_full,
         ];
 
     }
-
 }

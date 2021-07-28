@@ -4,17 +4,11 @@
         {!! Theme::partial('message') !!}
         <div class="layui-col-md12">
             <div class="fb-main-table">
-                <form class="layui-form" action="{{guard_url('page/expert/'.$page->id)}}" method="post" lay-filter="fb-form">
+                <form class="layui-form" action="{{guard_url('page/about/'.$page->id)}}" method="post" lay-filter="fb-form">
                     <div class="layui-form-item">
                         <label class="layui-form-label">* {{ trans('page.label.title') }}</label>
                         <div class="layui-input-inline">
                             <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('page.label.title') }}" class="layui-input" value="{{$page->title}}">
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('page.label.description') }}</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="description" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('page.label.description') }}" class="layui-input" value="{{$page->description}}">
                         </div>
                     </div>
                     <div class="layui-form-item">

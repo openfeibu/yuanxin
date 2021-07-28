@@ -96,7 +96,7 @@ return [
         'sm' => [
             'width'  => '375',
             'height' => '235',
-            'action' => 'resize',
+            'action' => 'fit', // resize
             //'default'   => 'img/noimage.jpg',
             //'watermark' => public_path('assets/img/watermark.png'),
         ],

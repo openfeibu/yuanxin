@@ -12,7 +12,7 @@ use Mockery\CountValidator\Exception;
 /**
  * Resource controller class for page.
  */
-class AboutResourceController extends BaseController
+class SpecialResourceController extends BaseController
 {
     /**
      * Initialize page resource controller.
@@ -24,8 +24,8 @@ class AboutResourceController extends BaseController
                                 PageCategoryRepositoryInterface $category)
     {
         parent::__construct($page,$category);
-        $this->category_slug = 'about';
-        $this->main_url = 'page/about';
+        $this->category_slug = 'special';
+        $this->main_url = 'page/special';
         $this->view_folder = $this->category_slug;
         $category_data = $category->where(['slug' => $this->category_slug])->first();
         $this->category_data = $category_data;
@@ -62,17 +62,17 @@ class AboutResourceController extends BaseController
             ->view($this->category_slug.'.index')
             ->output();
     }
-    public function show(PageRequest $request,Page $about)
+    public function show(PageRequest $request,Page $special)
     {
-        return parent::show($request,$about);
+        return parent::show($request,$special);
     }
-    public function update(PageRequest $request,Page $about)
+    public function update(PageRequest $request,Page $special)
     {
-        return parent::update($request,$about);
+        return parent::update($request,$special);
     }
-    public function destroy(PageRequest $request,Page $about)
+    public function destroy(PageRequest $request,Page $special)
     {
-        return parent::destroy($request,$about);
+        return parent::destroy($request,$special);
     }
 
 }

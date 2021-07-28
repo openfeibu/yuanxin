@@ -73,7 +73,7 @@ trait Slugger
             $slug = $this->{$slugAttribute};
         }
 
-        return $this->{$slugAttribute} = $this->getSluggableUniqueAttributeValue($slugAttribute, $slug);
+        return $this->{$slugAttribute} = !empty($this->{$slugAttribute}) && $this->{$slugAttribute} !='#' ?  $this->getSluggableUniqueAttributeValue($slugAttribute, $slug) : '#';
     }
 
     /**
