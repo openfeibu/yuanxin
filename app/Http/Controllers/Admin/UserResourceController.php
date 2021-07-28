@@ -26,16 +26,12 @@ class UserResourceController extends BaseController
     {
         $limit = $request->input('limit',config('app.limit'));
         $search = $request->input('search',[]);
-        $search_name = isset($search['search_name']) ? $search['search_name'] : '';
+        $search_nickname = isset($search['nickname']) ? $search['nickname'] : '';
 
         if ($this->response->typeIs('json')) {
-            $users = $this->repository;
-            if(!empty($search_name))
-            {
-                $users = $users->where(function ($query) use ($search_name){
-                    return $query->where('email','like','%'.$search_name.'%')->orWhere('phone','like','%'.$search_name.'%')->orWhere('name','like','%'.$search_name.'%');
-                });
-            }
+            $users = User::when($search_nickname,function ($query) use ($search_nickname){
+                return $query->where('nickname','like','%'.$search_nickname.'%');
+            });
             $users = $users
                 ->orderBy('id','desc')
                 ->paginate($limit);

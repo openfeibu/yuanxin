@@ -38,7 +38,7 @@
                 ,{field:'id',title:'ID', width:80, sort: true}
                 ,{field:'name',title:'{{ trans('project.label.name') }}',edit:'text'}
                 ,{field:'image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
-                ,{field:'description',title:'{{ trans('app.description') }}'}
+                ,{field:'description',title:'{{ trans('app.description') }}',edit:'text'}
                 ,{field:'order',title:'{{ trans('app.order') }}', sort: true}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]
