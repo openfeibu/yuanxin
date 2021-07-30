@@ -71,6 +71,13 @@ Route::group([
     Route::resource('project', 'ProjectResourceController');
     Route::post('/project/destroyAll', 'ProjectResourceController@destroyAll')->name('project.destroy_all');
 
+    /* 预约列表 */
+    Route::resource('appointment', 'AppointmentResourceController');
+    Route::post('/appointment/destroyAll', 'AppointmentResourceController@destroyAll')->name('appointment.destroy_all');
+    /* 报告单 */
+    Route::resource('report', 'ReportResourceController');
+    Route::post('/report/destroyAll', 'ReportResourceController@destroyAll')->name('report.destroy_all');
+
     Route::group(['prefix' => 'menu'], function ($router) {
         Route::get('index', 'MenuResourceController@index');
     });

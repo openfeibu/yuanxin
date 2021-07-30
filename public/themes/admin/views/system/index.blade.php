@@ -46,11 +46,11 @@
                 ,{field:'title',title:'{{ trans('app.title') }}', width:200}
                 ,{field:'slug',title:'{{ trans('app.slug') }}', width:200}
                 ,{field:'image',title:'{{ trans('page.label.image') }}', toolbar:'#imageTEM',}
-                ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
+                ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',fixed: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'
             ,page: true
-            ,limit: 20
+            ,limit: '{{ config('app.limit') }}'
             ,height: 'full-200'
         });
 

@@ -27,4 +27,8 @@ class Appointment extends BaseModel
     {
         return $this->belongsTo('App\Models\Project');
     }
+    public function report()
+    {
+        return $this->hasOne('App\Models\Report');
+    }
 }

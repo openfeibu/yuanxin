@@ -52,7 +52,7 @@
             ]]
             ,id: 'fb-table'
             ,page: true
-            ,limit: 20
+            ,limit: '{{ config('app.limit') }}'
             ,height: 'full-200'
             ,error: function(e,t){
                 console.log(e);

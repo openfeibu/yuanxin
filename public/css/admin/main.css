@@ -1,6 +1,14 @@
 .fb-clearfix:after{content: "";width: 100%;height: 0;display: block;clear: both;}
 html{min-height:100%;}
 body{background: #f5f5f5;}
+.layui-red{color:#FF5722!important}
+.layui-orange{color:#FFB800!important}
+.layui-green{color:#009688!important}
+.layui-cyan{color:#2F4056!important}
+.layui-blue{color:#1E9FFF!important}
+.layui-black{color:#393D49!important}
+.layui-gray{color:#eee!important;color:#666!important}
+
 .layui-side-menu{background:#fff;width: 200px;overflow-x: hidden;}
 .layui-side-menu .layui-nav{margin-top: 20px;background-color: #fff !important;}
 .layui-side-scroll{width: 220px;}

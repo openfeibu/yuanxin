@@ -28,7 +28,9 @@ return [
         'revision'     => ['name'],
         'perPage'      => '20',
         'search'        => [
-
+            'project_id' => '=',
+            'name' => 'like',
+            'number' => 'like',
         ],
     ],
     'appointment_date'     => [
