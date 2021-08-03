@@ -11,9 +11,9 @@
 
 namespace EasyWeChat\Kernel\Providers;
 
-use EasyWeChat\Kernel\EventDispatcher\Dispatcher;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * Class EventDispatcherServiceProvider.
@@ -32,8 +32,8 @@ class EventDispatcherServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $pimple)
     {
-        $pimple['events'] = function ($app) {
-            $dispatcher = new Dispatcher();
+        !isset($pimple['events']) && $pimple['events'] = function ($app) {
+            $dispatcher = new EventDispatcher();
 
             foreach ($app->config->get('events.listen', []) as $event => $listeners) {
                 foreach ($listeners as $listener) {

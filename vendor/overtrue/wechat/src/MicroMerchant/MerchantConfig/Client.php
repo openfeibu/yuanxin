@@ -24,15 +24,11 @@ class Client extends BaseClient
     /**
      * Service providers configure recommendation functions for small and micro businesses.
      *
-     * @param string $subAppId
-     * @param string $subscribeAppId
-     * @param string $receiptAppId
-     * @param string $subMchId
-     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function setFollowConfig(string $subAppId, string $subscribeAppId, string $receiptAppId = '', string $subMchId = '')
     {
@@ -41,7 +37,7 @@ class Client extends BaseClient
             'sub_mch_id' => $subMchId ?: $this->app['config']->sub_mch_id,
         ];
 
-        if (!empty($subscribeAppid)) {
+        if (!empty($subscribeAppId)) {
             $params['subscribe_appid'] = $subscribeAppId;
         } else {
             $params['receipt_appid'] = $receiptAppId;
@@ -55,10 +51,6 @@ class Client extends BaseClient
 
     /**
      * Configure the new payment directory.
-     *
-     * @param string $jsapiPath
-     * @param string $appId
-     * @param string $subMchId
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      *
@@ -77,10 +69,6 @@ class Client extends BaseClient
     /**
      * bind appid.
      *
-     * @param string $subAppId
-     * @param string $appId
-     * @param string $subMchId
-     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
@@ -98,12 +86,11 @@ class Client extends BaseClient
     /**
      * add sub dev config.
      *
-     * @param array $params
-     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     private function addConfig(array $params)
     {
@@ -113,13 +100,11 @@ class Client extends BaseClient
     /**
      * query Sub Dev Config.
      *
-     * @param string $subMchId
-     * @param string $appId
-     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getConfig(string $subMchId = '', string $appId = '')
     {

@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\ResourceController as BaseController;
 use App\Models\ReportFile;
+use App\Models\User;
 use App\Repositories\Eloquent\AppointmentRepository;
 use App\Repositories\Eloquent\ReportFileRepository;
 use App\Repositories\Eloquent\ReportFileRepositoryInterface;
 use App\Repositories\Eloquent\ReportRepository;
+use App\Services\MessageService;
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
 
@@ -20,13 +22,16 @@ class ReportFileResourceController extends BaseController
      * Initialize page resource controller.
      *
      * @param type ReportRepository $reportRepository
-     * @param type ReportFileRepository $report_fileFileRepository
+     * @param type ReportFileRepository $reportFileRepository
      * @param type AppointmentRepository $appointmentRepository
+     * @param type MessageService $messageService
      */
     public function __construct(
         ReportRepository $reportRepository,
         ReportFileRepository $reportFileRepository,
-        AppointmentRepository $appointmentRepository)
+        AppointmentRepository $appointmentRepository,
+        MessageService $messageService
+    )
     {
         parent::__construct();
         $this->repository = $reportFileRepository;
@@ -34,6 +39,7 @@ class ReportFileResourceController extends BaseController
         $this->appointmentRepository = $appointmentRepository;
         $this->repository
             ->pushCriteria(\App\Repositories\Criteria\RequestCriteria::class);
+        $this->messageService = $messageService;
     }
     public function index(Request $request){
         $limit = $request->input('limit',config('app.limit'));
@@ -96,9 +102,14 @@ class ReportFileResourceController extends BaseController
                 'name' => $attributes['name'].'.'.$pathinfo['extension'],
                 'suffix' => $pathinfo['extension'],
                 'url' => $attributes['url'],
-                'file_type' => isset(config('common.img_type')[$pathinfo['extension']]) ? 'image' : (isset(config('common.file_type')[$pathinfo['extension']]) ? 'file' : (isset(config('common.video_type')[$pathinfo['extension']]) ? 'video' : 'other'))
+                'file_type' =>in_array($pathinfo['extension'],config('common.img_type')) ? 'image' : (in_array($pathinfo['extension'],config('common.file_type')) ? 'file' : (in_array($pathinfo['extension'],config('common.video_type')) ? 'video' : 'other'))
             ]);
-
+            $user = User::where('id',$report->user_id)->first();
+            $this->messageService->sendSubscribeMessage('update_report_file',[
+                'report_id' => $report_id,
+                'openid' => $user->open_id,
+                'name' => $report->appointment->name
+            ]);
             return $this->response->message(trans('messages.success.created', ['Module' => trans('report_file.name')]))
                 ->code(0)
                 ->status('success')
