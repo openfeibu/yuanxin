@@ -10,7 +10,7 @@
                             <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
                         </div>
                         <div class="layui-card-body layuiadmin-card-list">
-                            <p class="layuiadmin-big-font">1</p>
+                            <p class="layuiadmin-big-font">{{ $today_appointment_count }}</p>
 
                         </div>
                     </div>
@@ -18,12 +18,12 @@
                 <div class="layui-col-sm6 layui-col-md3">
                     <div class="layui-card">
                         <div class="layui-card-header">
-                            <b>今日预约</b>
+                            <b>总预约数</b>
                             <label></label>
-                            <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
+                            <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
                         </div>
                         <div class="layui-card-body layuiadmin-card-list">
-                            <p class="layuiadmin-big-font">1</p>
+                            <p class="layuiadmin-big-font">{{ $appointment_count }}</p>
 
                         </div>
                     </div>
@@ -31,12 +31,12 @@
                 <div class="layui-col-sm6 layui-col-md3">
                     <div class="layui-card">
                         <div class="layui-card-header">
-                            <b>今日预约</b>
+                            <b>今日用户</b>
                             <label></label>
                             <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
                         </div>
                         <div class="layui-card-body layuiadmin-card-list">
-                            <p class="layuiadmin-big-font">1</p>
+                            <p class="layuiadmin-big-font">{{ $today_user_count }}</p>
 
                         </div>
                     </div>
@@ -44,12 +44,12 @@
                 <div class="layui-col-sm6 layui-col-md3">
                     <div class="layui-card">
                         <div class="layui-card-header">
-                            <b>今日预约</b>
+                            <b>总用户</b>
                             <label></label>
-                            <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
+                            <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
                         </div>
                         <div class="layui-card-body layuiadmin-card-list">
-                            <p class="layuiadmin-big-font">1</p>
+                            <p class="layuiadmin-big-font">{{ $user_count }}</p>
 
                         </div>
                     </div>

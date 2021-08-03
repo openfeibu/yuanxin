@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Appointment;
+use App\Models\User;
 use Route;
 use App\Http\Controllers\Admin\Controller as BaseController;
 use App\Traits\AdminUser\AdminUserPages;
@@ -32,8 +34,15 @@ class ResourceController extends BaseController
      */
     public function home()
     {
+        $user_count = User::count();
+        $today_user_count = User::where('created_at','>=',date('Y-m-d 00:00:00'))->count();
+
+        $appointment_count = Appointment::count();
+        $today_appointment_count = Appointment::where('created_at','>=',date('Y-m-d 00:00:00'))->count();
+
         return $this->response->title(trans('app.admin.panel'))
             ->view('home')
+            ->data(compact('user_count','today_user_count','appointment_count','today_appointment_count'))
             ->output();
     }
     public function dashboard()
