@@ -51,6 +51,39 @@ trait Upload
 
     }
 
+    public function uploadReportFile($config, $path)
+    {
+        $path   = explode('/', $path);
+        $file   = array_pop($path);
+
+        if (Request::hasFile($file)) {
+            $ufolder         = $this->uploadFolder($config);
+            $array = app(ImageService::class)->uploadReportFiles(Input::all(),$ufolder);
+
+            $array['path'] = $array['file_url'] = $array['file_url'][0];
+
+            $ext = pathinfo($array['path'], PATHINFO_EXTENSION);
+
+            if (in_array($ext, config('filer.image_extensions'))) {
+                $array['url'] = url('image/original' . '/' . ltrim($array['path'],'/'));
+            } else {
+                $array['url'] = url('image/download' . '/' . ltrim($array['path'],'/'));
+            }
+
+            $data = [
+                'code' => 0,
+                'message' => '上传成功',
+                'data' => [
+                    'url' => $array['url'],
+                    'path' => $array['path'],
+                ],
+            ];
+            return response()->json($data)
+                ->setStatusCode(203, 'UPLOAD_SUCCESS');
+        }
+
+    }
+
     public function uploadFile($config, $path)
     {
         $path   = explode('/', $path);

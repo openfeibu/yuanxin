@@ -42,9 +42,9 @@
 </div>
 <script type="text/html" id="barDemo">
     @{{# if(d.report_id){ }}
-    <a class="layui-btn layui-btn-warm layui-btn-sm" >查看报告单</a>
+    <a class="layui-btn layui-btn-warm layui-btn-sm" href="{{ guard_url('report') }}/@{{ d.report_id }}">查看报告单</a>
     @{{# }else{  }}
-    <a class="layui-btn layui-btn-normal layui-btn-sm" >出报告单</a>
+    <a class="layui-btn layui-btn-normal layui-btn-sm" href="{{ guard_url('report/create') }}?appointment_id=@{{ d.id }}">出报告单</a>
     @{{# }  }}
     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">{{ trans('app.delete') }}</a>
 </script>

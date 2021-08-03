@@ -28,7 +28,7 @@ return [
         'revision'     => ['name'],
         'perPage'      => '20',
         'search'        => [
-
+            //'project_id' => '=',
         ],
         'status' => ['good','abnormal'],
     ],
@@ -46,7 +46,7 @@ return [
         'revision'     => ['name'],
         'perPage'      => '20',
         'search'        => [
-
+            'report_id' => '=',
         ],
     ],
 

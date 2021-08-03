@@ -123,6 +123,20 @@ class ImageService
         return $this->uploadFilesHandle($all_files,$usage);
     }
 
+    public function uploadReportFiles($files, $usage)
+    {
+        if(is_array($files['file']))
+        {
+            $all_files = $files['file'];
+        }
+        else{
+            $all_files[] = $files['file'];
+        }
+        isVaildReportFile($all_files);
+        return $this->uploadFilesHandle($all_files,$usage);
+    }
+
+
     private function uploadFilesHandle($files, $usage='common')
     {
         //如果文件夹不存在，则创建文件夹

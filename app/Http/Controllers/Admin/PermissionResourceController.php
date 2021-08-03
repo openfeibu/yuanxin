@@ -128,7 +128,7 @@ class PermissionResourceController extends BaseController
             return $this->response->message($e->getMessage())
                 ->code(400)
                 ->status('error')
-                ->url(guard_url('/permission'))
+                ->url(guard_url('permission'))
                 ->redirect();
         }
 

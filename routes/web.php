@@ -78,6 +78,10 @@ Route::group([
     Route::resource('report', 'ReportResourceController');
     Route::post('/report/destroyAll', 'ReportResourceController@destroyAll')->name('report.destroy_all');
 
+    /* 报告文件 */
+    Route::resource('report_file', 'ReportFileResourceController');
+    Route::post('/report_file/destroyAll', 'ReportFileResourceController@destroyAll')->name('report_file.destroy_all');
+
     Route::group(['prefix' => 'menu'], function ($router) {
         Route::get('index', 'MenuResourceController@index');
     });
@@ -99,6 +103,7 @@ Route::group([
 
     Route::post('/upload/{config}/{path?}', 'UploadController@upload')->where('path', '(.*)');
     Route::post('/file/{config}/{path?}', 'UploadController@uploadFile')->where('path', '(.*)');
+    Route::post('/upload_report_file/{config}/{path?}', 'UploadController@uploadReportFile')->where('path', '(.*)');
 
     Route::resource('user', 'UserResourceController');
     Route::post('/user/destroyAll', 'UserResourceController@destroyAll')->name('user.destroy_all');

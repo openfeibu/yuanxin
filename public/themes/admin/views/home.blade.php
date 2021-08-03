@@ -1,43 +1,99 @@
 <div class="main">
-    <div class="main_full">
-        <div class="layui-col-md12">
-            <div class="layui-card">
-                <!-- <div class="layui-card-header">待办事项</div> -->
-                <div class="layui-card-body">
+    <div class="main_full fb-clearfix" style="margin-top: 15px;">
+        <div class="layui-col-md12 layui-card-box-home-block">
+            <div class="layui-card-box layui-col-space15  fb-clearfix">
+                <div class="layui-col-sm6 layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">
+                            <b>今日预约</b>
+                            <label></label>
+                            <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
+                        </div>
+                        <div class="layui-card-body layuiadmin-card-list">
+                            <p class="layuiadmin-big-font">1</p>
 
-                    <div class="fb-carousel fb-backlog " lay-anim="" lay-indicator="inside" lay-arrow="none" >
-                        <div carousel-item="">
-                            <ul class="layui-row fb-clearfix ">
-                                <li class="layui-col-xs3">
-                                    @permission(home())
-                                    <a lay-href="" class="fb-backlog-body">
-                                        <h3>会员量</h3>
-                                        <p><cite>66</cite></p>
-                                    </a>
-                                    @endpermission
-                                </li>
-                                <li class="layui-col-xs3">
-                                    <a lay-href="" class="fb-backlog-body">
-                                        <h3>待审帖子</h3>
-                                        <p><cite>12</cite></p>
-                                    </a>
-                                </li>
-                                <li class="layui-col-xs3">
-                                    <a lay-href="" class="fb-backlog-body">
-                                        <h3>待审商品</h3>
-                                        <p><cite>99</cite></p>
-                                    </a>
-                                </li>
-                                <li class="layui-col-xs3">
-                                    <a lay-href="" class="fb-backlog-body">
-                                        <h3>待发货</h3>
-                                        <p><cite>20</cite></p>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
+                <div class="layui-col-sm6 layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">
+                            <b>今日预约</b>
+                            <label></label>
+                            <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
+                        </div>
+                        <div class="layui-card-body layuiadmin-card-list">
+                            <p class="layuiadmin-big-font">1</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">
+                            <b>今日预约</b>
+                            <label></label>
+                            <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
+                        </div>
+                        <div class="layui-card-body layuiadmin-card-list">
+                            <p class="layuiadmin-big-font">1</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-sm6 layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">
+                            <b>今日预约</b>
+                            <label></label>
+                            <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
+                        </div>
+                        <div class="layui-card-body layuiadmin-card-list">
+                            <p class="layuiadmin-big-font">1</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-card-box fb-clearfix layui-col-space15">
+
+                <div class="layui-col-sm6 layui-col-md6">
+                    <div class="power-box fb-clearfix">
+                        <p>常用功能</p>
+                        <div class="power-box-con">
+                            @if(Auth::user()->isSuperuser() || Auth::user()->hasPermission('appointment.index'))
+                                <div class="power-box-item layui-col-md6">
+                                    <a href="{{ guard_url('appointment') }}">
+                                        {{ trans('appointment.name') }}
+                                    </a>
+                                </div>
+                            @endif
+                            @if(Auth::user()->isSuperuser() || Auth::user()->hasPermission('report.index'))
+                                <div class="power-box-item layui-col-md6">
+                                    <a href="{{ guard_url('report') }}">
+                                        {{ trans('report.name') }}
+                                    </a>
+                                </div>
+                            @endif
+                            @if(Auth::user()->isSuperuser() || Auth::user()->hasPermission('project.index'))
+                                <div class="power-box-item layui-col-md6">
+                                    <a href="{{ guard_url('project') }}">
+                                        {{ trans('project.name') }}
+                                    </a>
+                                </div>
+                            @endif
+
+                            <div class="power-box-item layui-col-md6">
+                                <a href="{{ setting('customer_service') }}" target="_blank">
+                                   客服中心
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>

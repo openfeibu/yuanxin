@@ -24,7 +24,9 @@
                         <div class="layui-inline">
                             <input class="layui-input search_key" name="name" placeholder="{{ trans('user.label.name') }}" autocomplete="off">
                         </div>
-
+                        <div class="layui-inline">
+                            <input class="layui-input search_key" name="phone" placeholder="{{ trans('user.label.phone') }}" autocomplete="off">
+                        </div>
                         <div class="layui-inline">
                             <button class="layui-btn" type="button" data-type="reload">{{ trans('app.search') }}</button>
                         </div>
@@ -39,7 +41,7 @@
     </div>
 </div>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="edit">{{ trans('report_file.name') }}</a>
+    <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="edit">{{ trans('app.details') }} / {{ trans('report_file.name') }}</a>
     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">{{ trans('app.delete') }}</a>
 </script>
 <script type="text/html" id="imageTEM">

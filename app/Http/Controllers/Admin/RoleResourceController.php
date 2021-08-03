@@ -124,7 +124,7 @@ class RoleResourceController extends BaseController
             return $this->response->message($e->getMessage())
                 ->code(400)
                 ->status('error')
-                ->url(guard_url('/role'))
+                ->url(guard_url('role'))
                 ->redirect();
         }
 

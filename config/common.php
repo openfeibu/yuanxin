@@ -7,6 +7,12 @@ return [
     'file_type' => [
         'xlsx','xls','csv','txt','doc','dos','pdf','docx','rar','zip'
     ],
+    'video_type' => [
+        'mp4','avi'
+    ],
+    'report_file_type' => [
+        'jpg','jpeg','png','pdf','mp4','avi'
+    ],
     'img_size' => 1024 * 1024 * 10,
     'file_size' => 1024 * 1024 * 10,
     'default_avatar' => '/system/avatar.jpeg',

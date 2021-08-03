@@ -51,6 +51,9 @@ class Forms
 
     private $width = '';
 
+    private $delete_url = null;
+
+    private $exts = null;
     /**
      * Build a new form element.
      *
@@ -147,6 +150,13 @@ class Forms
         $this->mime('file/*', false);
         return $this;
     }
+    public function uploaderReportFile($url = null)
+    {
+        $this->url($url, false);
+        $this->view('filer::upload_report_file', false);
+        $this->mime('file/*', false);
+        return $this;
+    }
     /**
      * Render the output
      * @return type
@@ -162,8 +172,10 @@ class Forms
         $src    = $this->getSrc();
         $count  = $this->getCount();
         $size   = $this->getSize();
+        $delete_url    = $this->getDeleteUrl();
+        $exts   = $this->getExts();
 
-        return view($view, compact('count', 'url', 'src', 'config', 'field', 'files', 'size', 'mime'))->render();
+        return view($view, compact('count', 'url', 'src', 'config', 'field', 'files', 'size', 'mime','delete_url','exts'))->render();
     }
 
     /**
@@ -429,6 +441,27 @@ class Forms
     {
         $this->width = $width;
 
+        return $this;
+    }
+    public function exts($exts)
+    {
+        $this->exts = $exts;
+
+        return $this;
+    }
+    public function getExts()
+    {
+        return $this->exts;
+    }
+
+    public function getDeleteUrl()
+    {
+        return $this->delete_url;
+    }
+
+    public function deleteUrl($url)
+    {
+        $this->delete_url = $url;
         return $this;
     }
 }

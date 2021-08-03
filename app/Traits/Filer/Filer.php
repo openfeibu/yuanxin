@@ -145,6 +145,10 @@ trait Filer
         return guard_url('file/' . $this->config . '/' . ($this->upload_folder) . '/' . $field . '/' . $file);
     }
 
+    public function getReportFileURL($field, $file = 'file')
+    {
+        return guard_url('upload_report_file/' . $this->config . '/' . ($this->upload_folder) . '/' . $field . '/' . $file);
+    }
     /**
      * Set single file field after upload.
      *

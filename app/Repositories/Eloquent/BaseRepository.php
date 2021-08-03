@@ -114,14 +114,16 @@ abstract class BaseRepository extends PrettusRepository implements RepositoryInt
     }
 
     /**
-     * Return data for datatable
+     * Retrieve all data of repository, paginated
      *
-     * @param $limit
-     * @return     array  array.
+     * @param string $limit
+     * @param array $columns
+     *
+     * @return mixed
      */
-    public function getDataTable($limit = "{config('app.limit')}")
+    public function getDataTable($limit = "{config('app.limit')}", $columns = ['*'])
     {
-        $data = $this->paginate($limit);
+        $data = $this->paginate($limit,$columns);
 
         $data['recordsTotal']    = $data['meta']['pagination']['total'];
         $data['recordsFiltered'] = $data['meta']['pagination']['total'];
@@ -242,9 +244,27 @@ abstract class BaseRepository extends PrettusRepository implements RepositoryInt
         $this->applyScope();
         return $this->model->toSql();
     }
+
     public function where($column, $operator = null, $value = null, $boolean = 'and')
     {
         $this->model = $this->model->where($column, $operator,$value,$boolean = 'and');
+        return $this;
+    }
+    /**
+     * Apply the callback's query changes if the given "value" is true.
+     *
+     * @param  mixed  $value
+     * @param  callable  $callback
+     * @param  callable  $default
+     * @return mixed
+     */
+    public function when($value, $callback, $default = null)
+    {
+        if ($value) {
+            return $callback($this, $value) ?: $this;
+        } elseif ($default) {
+            return $default($this, $value) ?: $this;
+        }
         return $this;
     }
     public function whereIn($field,$values)

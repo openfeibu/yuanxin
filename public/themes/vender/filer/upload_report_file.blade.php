@@ -15,7 +15,7 @@
     @endif
 </div>
 
-<input type="hidden" name="{!!$field!!}" id="path_{!!$field!!}" value="@if($files){{$files['path']}}@endif"/>
+<input type="hidden" name="{!!$field!!}" id="path_{!!$field!!}" lay-verify="required" value="@if($files){{$files['path']}}@endif"  />
 <script>
     layui.use(['jquery','element','form','table','upload'], function(){
         var $ = layui.$;
