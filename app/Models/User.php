@@ -25,12 +25,12 @@ class User extends AuthModel
 
     public function findUserByToken($token)
     {
-        return self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('token', 'b10f1270746ecf07f21d8e252b14ab69c3332122')->first();
+        return self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('token', $token)->first();
     }
     public static function getUser()
     {
         $token = RequestFacades::input('token','');
-        $user = self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('token', 'b10f1270746ecf07f21d8e252b14ab69c3332122')->first();
+        $user = self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('token', $token)->first();
         if(!$user)
         {
             throw new UnauthorizedHttpException('jwt-auth', '未登录');
@@ -48,7 +48,7 @@ class User extends AuthModel
     public static function tokenAuth($custom = ['*'])
     {
         $token = Request::input('token','');
-        self::$user = $user = self::where('token', 'b10f1270746ecf07f21d8e252b14ab69c3332122')->first($custom);
+        self::$user = $user = self::where('token', $token)->first($custom);
         if (!$user) {
             throw new UnauthorizedHttpException('jwt-auth', 'token过期请重新登陆');
         }
