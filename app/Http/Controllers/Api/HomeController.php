@@ -55,4 +55,11 @@ class HomeController extends BaseController
         var_dump($send);exit;
 
     }
+    public function getSettings(Request $request)
+    {
+        $category = $request->get('category','station');
+        $setting = Setting::where('category',$category)->orderBy('order','asc')->orderBy('id','asc')->pluck('value','slug');
+
+        return $this->response->success()->data($setting)->json();
+    }
 }

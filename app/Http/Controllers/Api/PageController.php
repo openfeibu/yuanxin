@@ -111,4 +111,23 @@ class PageController extends BaseController
 
         return $this->response->success()->data($data['data'])->count(count($data['data']))->json();
     }
+    public function getLifeBanks(Request $request)
+    {
+        $category_id = 7;
+
+        $data = $this->repository->where(['status' => 'show'])->where(['category_id' => $category_id]);
+
+        $category = $this->category_repository->find($category_id);
+        $data =  $this->repository->where(['status' => 'show'])->where(['category_id' => $category_id])->orderBy('order','asc')->orderBy('id','desc')
+            ->setPresenter(\App\Repositories\Presenter\Api\PageListPresenter::class);
+
+        $data = $data->get();
+        $count = count($data['data']);
+
+        return $this->response->success()->data([
+            'category' => $category,
+            'data' => $data['data']
+        ])->count($count)->json();
+
+    }
 }

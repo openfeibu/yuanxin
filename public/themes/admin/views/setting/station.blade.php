@@ -18,12 +18,18 @@
                         ->url($setting['logo']->getUploadUrl('value'))
                         ->uploader()!!}
                     </div>
+
                     <div class="layui-form-item">
-                        <label class="layui-form-label">版权声明</label>
+                        <label class="layui-form-label">开发模式</label>
+                        <div class="layui-input-inline" style="display: none;">
+                            <input type="checkbox" checked=""  name="development_mode" lay-skin="switch" lay-filter="switchTest" lay-text="开启|关闭" value="0" >
+                        </div>
                         <div class="layui-input-inline">
-                            <input type="text" name="right" lay-verify="companyName" autocomplete="off" placeholder="版权" class="layui-input" value="{{$setting['right']}}">
+                            <input type="checkbox" @if($setting['development_mode'])checked="" @endif name="development_mode" lay-skin="switch" lay-filter="switchTest" lay-text="开启|关闭" value="1">
+
                         </div>
                     </div>
+
                     <div class="layui-form-item">
                         <div class="layui-input-block">
                             <button class="layui-btn" lay-submit="" lay-filter="demo1">{{ trans('app.submit_now') }}</button>

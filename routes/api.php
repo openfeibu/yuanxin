@@ -30,10 +30,12 @@ $api->version('v1', function ($api) {
     $api->get('/test','App\Http\Controllers\Api\HomeController@test');
 
     $api->get('/banners','App\Http\Controllers\Api\HomeController@getBanners');
+    $api->get('/settings','App\Http\Controllers\Api\HomeController@getSettings');
     $api->get('/pages','App\Http\Controllers\Api\PageController@getPages');
     $api->get('/pages/{id}','App\Http\Controllers\Api\PageController@getPage');
     $api->get('/pages/slug/{slug}','App\Http\Controllers\Api\PageController@getPageSlug');
     $api->get('/page-categories','App\Http\Controllers\Api\PageCategoryController@getPageCategories');
+    $api->get('/life_banks','App\Http\Controllers\Api\PageController@getLifeBanks');
     $api->get('/about-images','App\Http\Controllers\Api\PageController@getAboutImages');
     $api->get('/about-contents','App\Http\Controllers\Api\PageController@getAboutContents');
 

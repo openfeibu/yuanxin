@@ -66,6 +66,10 @@ Route::group([
         Route::resource('feature', 'FeatureResourceController');
         Route::post('/feature/destroyAll', 'FeatureResourceController@destroyAll')->name('feature.destroy_all');
 
+        /*生命银行*/
+        Route::resource('life_bank', 'LifeBankResourceController');
+        Route::post('/life_bank/destroyAll', 'LifeBankResourceController@destroyAll')->name('life_bank.destroy_all');
+
     });
     /* 项目列表 */
     Route::resource('project', 'ProjectResourceController');
