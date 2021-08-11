@@ -12,6 +12,12 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans('app.description') }}</label>
+                        <div class="layui-input-inline">
+                            <textarea name="description" class="layui-textarea">{{ $page->description }}</textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('page.label.image') }}</label>
                         {!! $page->files('image')
                         ->url($page->getUploadUrl('image'))
