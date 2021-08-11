@@ -24,7 +24,12 @@
                             <input type="text" name="order" autocomplete="off" placeholder="" class="layui-input" value="{{ $project->order }}" lay-verify="number">
                         </div>
                     </div>
-
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans("page.label.status") }}</label>
+                        <div class="layui-input-inline">
+                            <input type="checkbox" name="status" value="1" lay-skin="switch" lay-text="是|否" lay-filter="status" @if($project->status == 'show') checked @endif>
+                        </div>
+                    </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('app.description') }}</label>
                         <div class="layui-input-inline">

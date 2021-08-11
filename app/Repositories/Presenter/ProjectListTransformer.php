@@ -16,6 +16,7 @@ class ProjectListTransformer extends TransformerAbstract
             'content' => replace_image_url($project->content,config('app.image_url')),
             'image' => handle_image_url($project->image,config('app.image_url').'/image/original'),
             'order' => $project->order,
+            'status' => $project->status,
         ];
     }
 }

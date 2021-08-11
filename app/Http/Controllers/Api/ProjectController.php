@@ -22,6 +22,7 @@ class ProjectController extends BaseController
     {
         $projects = $this->projectRepository
             ->setPresenter(\App\Repositories\Presenter\Api\ProjectListPresenter::class)
+            ->where('status','show')
             ->orderBy('id','asc')
             ->orderBy('order','asc')
             ->get();

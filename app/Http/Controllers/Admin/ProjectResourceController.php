@@ -56,7 +56,12 @@ class ProjectResourceController extends BaseController
     {
         try {
             $attributes = $request->all();
-
+            if(isset($attributes['status']) && $attributes['status'])
+            {
+                $attributes['status'] = 'show';
+            }else{
+                $attributes['status'] = 'hide';
+            }
             $project = $this->repository->create($attributes);
 
             return $this->response->message(trans('messages.success.created', ['Module' => trans('project.name')]))
@@ -89,10 +94,16 @@ class ProjectResourceController extends BaseController
     {
         try {
             $attributes = $request->all();
-
+            if(isset($attributes['status'])) {
+                if ($attributes['status']) {
+                    $attributes['status'] = 'show';
+                } else {
+                    $attributes['status'] = 'hide';
+                }
+            }
             $project->update($attributes);
 
-            return $this->response->message(trans('messages.success.created', ['Module' => trans('project.name')]))
+            return $this->response->message(trans('messages.success.updated', ['Module' => trans('project.name')]))
                 ->code(0)
                 ->status('success')
                 ->url(guard_url('project/'))

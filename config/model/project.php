@@ -21,7 +21,7 @@ return [
         'hidden'       => [],
         'visible'      => [],
         'guarded'      => ['*'],
-        'fillable'     => ['name','image', 'content', 'description'],
+        'fillable'     => ['name','image', 'content', 'description','status','order'],
         'translate'    => [],
         'upload_folder' => '/project',
         'encrypt'      => ['id'],
