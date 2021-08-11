@@ -12,6 +12,7 @@ return [
     'label'       => [
         'name'             => 'Name',
         'title'            => '标题',
+        'link'            => '外部链接',
         'heading'          => 'Heading',
         'sub_heading'      => 'Sub heading',
         'abstract'         => 'Abstract',
