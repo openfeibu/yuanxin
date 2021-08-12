@@ -21,6 +21,14 @@
                             </select>
                         </div>
                         <div class="layui-inline">
+                            <select name="status" class="search_key layui-select">
+                                <option value="">{{ trans('appointment.label.status') }}</option>
+                                @foreach(config('model.appointment.appointment.status') as $key => $status)
+                                    <option value="{{ $status }}">{{ trans('appointment.status.'.$status) }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="layui-inline">
                             <input class="layui-input search_key" name="number" placeholder="{{ trans('appointment.label.number') }}" autocomplete="off">
                         </div>
                         <div class="layui-inline">
@@ -41,6 +49,9 @@
     </div>
 </div>
 <script type="text/html" id="barDemo">
+    @{{# if(d.status == 'unchecked'){ }}
+    <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="check">核销</a>
+    @{{# }  }}
     @{{# if(d.report_id){ }}
     <a class="layui-btn layui-btn-warm layui-btn-sm" href="{{ guard_url('report') }}/@{{ d.report_id }}">查看报告单</a>
     @{{# }else{  }}
@@ -63,8 +74,8 @@
             ,url: '{{guard_url('appointment')}}'
             ,cols: [[
                 {checkbox: true, fixed: true}
-                ,{field:'id',title:'ID', width:80, sort: true}
-                ,{field:'number',title:'{{ trans('appointment.label.number') }}', width:100}
+                ,{field:'id',title:'ID', width:80, sort: true,fixed: 'left'}
+                ,{field:'number',title:'{{ trans('appointment.label.number') }}', width:100,fixed: 'left'}
                 ,{field:'project_name',title:'{{ trans('project.label.name') }}',templet:'<div>@{{ d.project.name }}</div>', width:200}
                 ,{field:'name',title:'{{ trans('user.label.name') }}', width:100}
                 ,{field:'phone',title:'{{ trans('user.label.phone') }}', width:120}
@@ -72,8 +83,9 @@
                 ,{field:'date',title:'{{ trans('appointment.label.date') }}', width:150}
                 ,{field:'start_time',title:'{{ trans('appointment.label.start_time') }}', width:100}
                 ,{field:'end_time',title:'{{ trans('appointment.label.end_time') }}', width:100}
+                ,{field:'status',title:'{{ trans('appointment.label.status') }}', width:100,templet:"<div> @{{# if(d.status =='check'){ }} <span class='layui-green'> @{{#}else{  }} <span class='layui-red'> @{{# }  }} @{{ d.status_desc }}</span></div>"}
                 ,{field:'note',title:'{{ trans('appointment.label.note') }}', width:200}
-                ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',fixed: 'right',toolbar:'#barDemo',}
+                ,{field:'score',title:'{{ trans('app.actions') }}', width:230, align: 'right',fixed: 'right',toolbar:'#barDemo',}
             ]]
             ,id: 'fb-table'
             ,page: true
@@ -84,6 +96,45 @@
                 $.ajax_table_error(e);
             }
         });
+        $.extend_tool = function (obj) {
+            var data = obj.data;
+            data['_token'] = "{!! csrf_token() !!}";
+            data['nPage'] = $(".layui-laypage-curr em").eq(1).text();
+
+            appointment_handle[obj.event] ? appointment_handle[obj.event].call(this,data) : '';
+        }
+        appointment_handle = {
+            check: function (obj) {
+                layer.confirm('该操作无法撤回，确定体检人已到场吗？',{title:'提示'},function(index){
+                    layer.close(index);
+                    var load = layer.load();
+                    $.ajax({
+                        url : "{{ guard_url('appointment/check') }}",
+                        data :  {'id':obj['id'],'_token' : "{!! csrf_token() !!}"},
+                        type : 'POST',
+                        success : function (data) {
+                            layer.close(load);
+                            if(data.code == 0)
+                            {
+                                var nPage = $(".layui-laypage-curr em").eq(1).text();
+                                //执行重载
+                                table.reload('fb-table', {
+                                    page: {
+                                        curr: nPage //重新从第 1 页开始
+                                    }
+                                });
+                            }else{
+                                layer.msg(data.msg);
+                            }
+                        },
+                        error : function (jqXHR, textStatus, errorThrown) {
+                            layer.close(load);
+                            $.ajax_error(jqXHR, textStatus, errorThrown);
+                        }
+                    });
+                })  ;
+            },
+        }
     });
 </script>
 {!! Theme::partial('common_handle_js') !!}

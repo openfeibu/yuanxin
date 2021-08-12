@@ -78,6 +78,8 @@ Route::group([
     /* 预约列表 */
     Route::resource('appointment', 'AppointmentResourceController');
     Route::post('/appointment/destroyAll', 'AppointmentResourceController@destroyAll')->name('appointment.destroy_all');
+    Route::post('/appointment/check', 'AppointmentResourceController@check')->name('appointment.check');
+
     /* 报告单 */
     Route::resource('report', 'ReportResourceController');
     Route::post('/report/destroyAll', 'ReportResourceController@destroyAll')->name('report.destroy_all');

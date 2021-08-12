@@ -8,6 +8,11 @@ return [
         'date' => '预约日期',
         'start_time' => '开始时间',
         'end_time' => '结束时间',
-        'note' => '备注'
+        'note' => '备注',
+        'status' => '核销状态'
     ],
+    'status' => [
+        'unchecked' => '未核销',
+        'check' => '已核销'
+    ]
 ];

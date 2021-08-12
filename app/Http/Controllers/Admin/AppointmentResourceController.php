@@ -148,5 +148,26 @@ class AppointmentResourceController extends BaseController
                 ->redirect();
         }
     }
+    public function check(Request $request)
+    {
+        try {
+            $id = $request->get('id');
+            Appointment::where('id',$id)->update(['status' => 'check']);
+
+            return $this->response->message(trans('messages.success.deleted', ['Module' => trans('appointment.name')]))
+                ->status("success")
+                ->http_code(202)
+                ->url(guard_url('appointment'))
+                ->redirect();
+
+        } catch (Exception $e) {
+
+            return $this->response->message($e->getMessage())
+                ->status("error")
+                ->code(400)
+                ->url(guard_url('appointment'))
+                ->redirect();
+        }
+    }
 
 }
