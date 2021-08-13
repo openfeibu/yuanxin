@@ -13,8 +13,8 @@ return [
     'report_file_type' => [
         'jpg','jpeg','png','pdf','mp4','avi'
     ],
-    'img_size' => 1024 * 1024 * 10,
-    'file_size' => 1024 * 1024 * 10,
+    'img_size' => 1024 * 1024 * 200,
+    'file_size' => 1024 * 1024 * 200,
     'default_avatar' => '/system/avatar.jpeg',
     'auth_file' => '/system/auth_file.jpeg',
     'qq_map_key' => env('QQ_MAP_WEB_KEY'),
