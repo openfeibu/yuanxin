@@ -22,5 +22,5 @@ return [
         'storage' => 'local',
         'path' => '/uploads',
     ],
-    'project_weapp_link' => 'pages/projectDetail/projectDetail?id=',
+    'project_weapp_link' => '/pages/projectDetail/projectDetail?id=',
 ];

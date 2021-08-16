@@ -5,6 +5,6 @@ return [
     'names'       => '项目',
     'label'       => [
         'name' => '项目名称',
-        'content' => '注意事项'
+        'content' => '内容详情'
     ],
 ];
