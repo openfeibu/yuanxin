@@ -18,7 +18,7 @@ class AppointmentListTransformer extends TransformerAbstract
             'phone' => $appointment->phone,
             'idcard' => $appointment->idcard,
             'project' => $project,
-            'date' => date('Y年m月n日',strtotime($appointment->date)),
+            'date' => date('Y年m月d日',strtotime($appointment->date)),
             'start_time' => substr($appointment->start_time,0,5),
             'end_time' => substr($appointment->end_time,0,5),
         ];

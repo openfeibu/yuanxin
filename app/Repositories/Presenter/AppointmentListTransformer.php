@@ -22,7 +22,7 @@ class AppointmentListTransformer extends TransformerAbstract
             'status' => $appointment->status,
             'status_desc' => trans('appointment.status.'.$appointment->status),
             'project' => $project,
-            'date' => date('Y年m月n日',strtotime($appointment->date)),
+            'date' => date('Y年m月d日',strtotime($appointment->date)),
             'start_time' => substr($appointment->start_time,0,5),
             'end_time' => substr($appointment->end_time,0,5),
         ];

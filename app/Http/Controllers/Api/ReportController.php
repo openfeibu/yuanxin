@@ -92,15 +92,22 @@ class ReportController extends BaseController
             ->find($report_id);
         $project_name = $report['data']['project']['name'];
         $email = $archive->email;
-        $html = "<div class='1'>您好，".$project_name." 报告单文件请在附件查收！</div>";
+        $html = "<div class='1'>您好，".$project_name." 报告单文件请点击文件名下载！</div>";
+        foreach ($report_files as $key => $report_file)
+        {
+            $html .= "<p><a href='".handle_image_url($report_file['url'],config('app.image_url').'/image/download')."'>".$report_file['name']."</a></p>";
+        }
+        $html .= "</div>";
         $send = Mail::html($html, function($message) use($email,$report_files,$project_name) {
             $message->from(config('mail.from')['address'],config('mail.from')['name']);
             $message->subject('['.$project_name.' 报告单] ');
             $message->to($email);
+            /*
             foreach ($report_files as $key => $report_file)
             {
                 $message->attach(storage_path('uploads'.$report_file['url']), ['as'=>$report_file['name']]);
             }
+            */
         });
         throw new RequestSuccessException('已发送至'.$email.'！可能存在延迟，请注意查收！');
     }
