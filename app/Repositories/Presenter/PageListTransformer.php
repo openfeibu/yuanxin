@@ -12,6 +12,7 @@ class PageListTransformer extends TransformerAbstract
             'id'      => $page->id,
             'slug'    => $page->slug,
             'url'     => $page->slug . '.html',
+            'link'    => $page->link,
             'name'    => $page->name,
             'sm_image'   => $page->image ? url("/image/sm".$page->image) : '',
             'image'   => $page->image ? url("/image/original".$page->image) : '',

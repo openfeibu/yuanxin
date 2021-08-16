@@ -16,5 +16,10 @@ class ProjectRepository extends BaseRepository implements ProjectRepositoryInter
     {
         return config('model.project.project.model');
     }
-
+    public function getProjects()
+    {
+        return $this->orderBy('id','asc')
+            ->orderBy('order','asc')
+            ->get();
+    }
 }

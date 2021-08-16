@@ -46,6 +46,7 @@
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
                 ,{field:'title',title:'{{ trans('page.label.title') }}',edit:'text' }
+                ,{field:'link',title:'{{ trans('project.name') }}{{ trans('app.link') }}',width:150}
                 ,{field:'description',title:'{{ trans('app.description') }}',edit:'text'}
                 ,{field:'image',title:'{{ trans('page.label.image') }}', toolbar:'#imageTEM',width:100}
                 ,{field:'order',title:'{{ trans('app.order') }}', width:80, sort: true,edit:'text'}

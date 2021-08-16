@@ -11,6 +11,18 @@
                             <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('page.label.title') }}" class="layui-input" >
                         </div>
                     </div>
+                    <div class="layui-form-item fb-form-item">
+                        <label class="layui-form-label">关联项目 </label>
+                        <div class="layui-input-block">
+                            @inject('projectRepository','App\Repositories\Eloquent\ProjectRepository')
+                            <select name="link" id="link" lay-filter="" lay-search>
+                                <option value="">请选择项目</option>
+                                @foreach($projectRepository->getProjects() as $key => $project)
+                                    <option value="{{ config('common.project_weapp_link') }}{{ $project->id }}">{{ $project->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('app.description') }}</label>
                         <div class="layui-input-inline">
