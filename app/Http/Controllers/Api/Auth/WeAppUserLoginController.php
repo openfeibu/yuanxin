@@ -33,13 +33,13 @@ class WeAppUserLoginController extends BaseController
         return $this->response->success()->data($user)->json();
 
     }
-    //wx.getUserProfile 获取opedId，没有真实昵称，由前端提供$rawdata
+    //wx.getUserProfile 获取opedId，没有真实昵称，由前端提供$rawData
     public function login(Request $request)
     {
         $code = $request->input('code');
         $encryptedData = $request->input('encryptedData');
         $iv = $request->input('iv');
-        $rawdata = json_decode($request->input('rawdata'));
+        $raw_data = json_decode($request->input('rawData'));
 
         $data = $this->getSessionKey($code);
         $sessionKey = $data['session_key'];
@@ -55,9 +55,9 @@ class WeAppUserLoginController extends BaseController
         }
 
         $user_info = json_decode($data);
-        $user_info['nickname'] = $rawdata['nickName'];
-        $user_info['avatar_url'] = $rawdata['avatarUrl'];
-        $user_info['city'] = $rawdata['city'];
+        $user_info['nickname'] = $raw_data['nickName'];
+        $user_info['avatar_url'] = $raw_data['avatarUrl'];
+        $user_info['city'] = $raw_data['city'];
 
         $this->storeUser($user_info, $token, $sessionKey);
 
