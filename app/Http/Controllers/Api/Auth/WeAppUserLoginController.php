@@ -55,8 +55,8 @@ class WeAppUserLoginController extends BaseController
         }
 
         $user_info = json_decode($data);
-        $user_info->nickname = $raw_data['nickName'];
-        $user_info->avatar_url = $raw_data['avatarUrl'];
+        $user_info->nickName = $raw_data['nickName'];
+        $user_info->avatarUrl = $raw_data['avatarUrl'];
         $user_info->city = $raw_data['city'];
 
         $this->storeUser($user_info, $token, $sessionKey);
