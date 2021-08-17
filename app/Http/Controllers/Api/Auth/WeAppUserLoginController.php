@@ -39,7 +39,7 @@ class WeAppUserLoginController extends BaseController
         $code = $request->input('code');
         $encryptedData = $request->input('encryptedData');
         $iv = $request->input('iv');
-        $rawdata = $request->input('rawdata',[]);
+        $rawdata = json_decode($request->input('rawdata'));
 
         $data = $this->getSessionKey($code);
         $sessionKey = $data['session_key'];
