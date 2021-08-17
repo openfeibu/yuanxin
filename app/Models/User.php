@@ -27,6 +27,10 @@ class User extends AuthModel
     {
         return self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('token', $token)->first();
     }
+    public function findUserByOpenId($open_id)
+    {
+        return self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('open_id', $open_id)->first();
+    }
     public static function getUser()
     {
         $token = RequestFacades::input('token','');
