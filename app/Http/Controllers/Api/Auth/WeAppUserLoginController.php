@@ -27,13 +27,47 @@ class WeAppUserLoginController extends BaseController
         $user_info->avatarUrl = '';
         $user_info->nickName = '';
         $user_info->city = "";
-        $this->storeUser($user_info, $token, $we_data['session_key']);
+        //$this->storeUser($user_info, $token, $we_data['session_key']);
         $user = app(User::class)->findUserByToken($token);
 
         return $this->response->success()->data($user)->json();
 
     }
+    //wx.getUserProfile 获取opedId，没有真实昵称，由前端提供$rawdata
     public function login(Request $request)
+    {
+        $code = $request->input('code');
+        $encryptedData = $request->input('encryptedData');
+        $iv = $request->input('iv');
+        $rawdata = $request->input('rawdata',[]);
+
+        $data = $this->getSessionKey($code);
+        $sessionKey = $data['session_key'];
+
+        $token = $this->generatetoken($sessionKey);
+
+        $WXBizDataCryptService = new WXBizDataCryptService($sessionKey);
+
+        $errCode = $WXBizDataCryptService->decryptData($encryptedData, $iv, $data );
+
+        if ($errCode != 0) {
+            throw new OutputServerMessageException($errCode);
+        }
+
+        $user_info = json_decode($data);
+        $user_info['nickname'] = $rawdata['nickName'];
+        $user_info['avatar_url'] = $rawdata['avatarUrl'];
+        $user_info['city'] = $rawdata['city'];
+
+        $this->storeUser($user_info, $token, $sessionKey);
+
+        $user = app(User::class)->findUserByToken($token);
+
+        return $this->response->success()->data($user)->json();
+    }
+    //wx.getUserInfo 真实昵称，没有openId
+    /*
+    public function update(Request $request)
     {
         $code = $request->input('code');
         $encryptedData = $request->input('encryptedData');
@@ -60,6 +94,7 @@ class WeAppUserLoginController extends BaseController
 
         return $this->response->success()->data($user)->json();
     }
+    */
     /**
      * 通过 code 换取 session key
      * @param string $code
