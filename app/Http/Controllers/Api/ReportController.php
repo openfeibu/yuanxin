@@ -79,7 +79,7 @@ class ReportController extends BaseController
         $user = User::tokenAuth();
         $archive = $user->archive;
         $ids = $request->ids;
-        $ids = is_array($ids) ? $ids : explode(',',$ids);
+		$ids = is_array($ids) ? $ids : explode(',',$ids);
         $report_files = $this->reportFileRepository->whereIn('id', $ids)->orderBy('updated_at', 'asc')->get();
         if(!$report_files)
         {

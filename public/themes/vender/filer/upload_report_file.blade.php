@@ -2,16 +2,16 @@
 <div class="layui-input-block">
     <div id="upload_file_content_{!!$field!!}">
         <button type="button" class="layui-btn layui-btn-normal" id="uploadFile_{!!$field!!}">选择文件</button>
-        <button type="button" class="layui-btn" id="uploadFile_action_{!!$field!!}">开始上传</button>
+        <button type="button" class="layui-btn layui-btn-warm" id="uploadFile_action_{!!$field!!}">开始上传</button>
         @if($files)
-            <a type="button" class="layui-btn" href="{!!url("/image/download".$files['path'])!!}" id="file_{!!$field!!}">{{ trans('app.download') }}</a>
+            <a type="button" class="layui-btn layui-btn-danger" target="_black" href="{!!url("/image/download".$files['path'])!!}" id="file_{!!$field!!}">查看文件</a>
         @else
-            <a type="button" class="layui-btn" href="" style="display: none" id="file_{!!$field!!}">{{ trans('app.download') }}</a>
+            <a type="button" class="layui-btn layui-btn-danger" target="_black"  href="" style="display: none" id="file_{!!$field!!}">查看文件</a>
         @endif
 
     </div>
     @if(isset($exts) && $exts)
-        <div class="layui-form-mid layui-word-aux">格式要求：{{ $exts }}</div>
+        <div class="layui-form-mid layui-word-aux">格式要求：{{ $exts }}，多个文件请分开上传</div>
     @endif
 </div>
 

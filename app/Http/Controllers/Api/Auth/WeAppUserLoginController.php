@@ -39,7 +39,7 @@ class WeAppUserLoginController extends BaseController
         $code = $request->input('code');
         $encryptedData = $request->input('encryptedData');
         $iv = $request->input('iv');
-        $raw_data = json_decode($request->input('rawData'));
+        $raw_data = json_decode($request->input('rawData'),true);
 
         $data = $this->getSessionKey($code);
         $sessionKey = $data['session_key'];
@@ -55,9 +55,9 @@ class WeAppUserLoginController extends BaseController
         }
 
         $user_info = json_decode($data);
-        $user_info['nickname'] = $raw_data['nickName'];
-        $user_info['avatar_url'] = $raw_data['avatarUrl'];
-        $user_info['city'] = $raw_data['city'];
+        $user_info->nickname = $raw_data['nickName'];
+        $user_info->avatar_url = $raw_data['avatarUrl'];
+        $user_info->city = $raw_data['city'];
 
         $this->storeUser($user_info, $token, $sessionKey);
 
