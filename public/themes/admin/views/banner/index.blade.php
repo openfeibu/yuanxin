@@ -43,7 +43,7 @@
                 ,{field:'title',title:'{{ trans('app.title') }}', sort: true,edit:'text'}
                 ,{field:'sm_image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
                 ,{field:'url',title:'{{ trans('banner.label.url') }}', sort: true}
-                ,{field:'order',title:'{{ trans('app.order') }}', sort: true}
+                ,{field:'order',title:'{{ trans('app.order') }}', sort: true,edit:'text'}
                 ,{field:'type_desc',title:'{{ trans('app.type') }}', sort: true}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',toolbar:'#barDemo'}
             ]]

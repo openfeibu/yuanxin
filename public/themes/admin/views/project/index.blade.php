@@ -43,7 +43,7 @@
                 ,{field:'image',title:'{{ trans('app.image') }}', width:200,toolbar:'#imageTEM',}
                 ,{field:'description',title:'{{ trans('app.description') }}',edit:'text'}
                 ,{field:'status',title:'{{ trans('page.label.status') }}',width:120,templet:'#switchTpl'}
-                ,{field:'order',title:'{{ trans('app.order') }}', sort: true}
+                ,{field:'order',title:'{{ trans('app.order') }}', sort: true,edit:'text'}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',fixed: 'right',toolbar:'#barDemo'}
             ]]
             ,id: 'fb-table'
