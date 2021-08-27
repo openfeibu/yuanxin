@@ -105,12 +105,11 @@
         }
         appointment_handle = {
             check: function (obj) {
-                layer.confirm('该操作无法撤回，确定体检人已到场吗？',{title:'提示'},function(index){
-                    layer.close(index);
+                layer.prompt({title: '请输入验证码，该操作无法撤回，确定体检人已到场吗？', formType: 0}, function(text, index){
                     var load = layer.load();
                     $.ajax({
                         url : "{{ guard_url('appointment/check') }}",
-                        data :  {'id':obj['id'],'_token' : "{!! csrf_token() !!}"},
+                        data :  {'id':obj['id'],'number':text,'_token' : "{!! csrf_token() !!}"},
                         type : 'POST',
                         success : function (data) {
                             layer.close(load);
@@ -123,8 +122,9 @@
                                         curr: nPage //重新从第 1 页开始
                                     }
                                 });
+                                layer.close(index);
                             }else{
-                                layer.msg(data.msg);
+                                layer.msg(data.message);
                             }
                         },
                         error : function (jqXHR, textStatus, errorThrown) {
@@ -132,7 +132,8 @@
                             $.ajax_error(jqXHR, textStatus, errorThrown);
                         }
                     });
-                })  ;
+                });
+
             },
         }
     });

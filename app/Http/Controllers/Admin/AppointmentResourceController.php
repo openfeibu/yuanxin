@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exceptions\OutputServerMessageException;
 use App\Http\Controllers\Admin\ResourceController as BaseController;
 use App\Models\Appointment;
 use App\Repositories\Eloquent\AppointmentRepository;
@@ -152,7 +153,19 @@ class AppointmentResourceController extends BaseController
     {
         try {
             $id = $request->get('id');
-            Appointment::where('id',$id)->update(['status' => 'check']);
+            $number = strtoupper($request->get('number',''));
+            if(!strstr($number, 'YX'))
+            {
+                $number = 'YX'.$number;
+            }
+            $appointment = $this->repository->find($id);
+            if($appointment->number == $number)
+            {
+                Appointment::where('id',$id)->update(['status' => 'check']);
+            }else{
+                throw new OutputServerMessageException('验证码不正确');
+            }
+
 
             return $this->response->message(trans('messages.success.deleted', ['Module' => trans('appointment.name')]))
                 ->status("success")

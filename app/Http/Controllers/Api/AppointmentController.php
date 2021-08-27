@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use Log;
 use Auth;
+use Mail;
 use App\Models\User;
 use Mrgoon\AliSms\AliSms;
 
@@ -124,6 +125,17 @@ class AppointmentController extends BaseController
             'smsable_id' => $appointment['data']['id'],
             'smsabletype_id' => 'App\Models\Appointment'
         ]);
+        $html = "<div class='1'>您好，有新的预约，请注意查看！<a href='".config('app.url')."/admin/appointment' target='_blank'>管理后台</a>";
+        $html .="<p>姓名：".$appointment['data']['name']."</p>";
+        $html .="<p>项目名称：".$appointment['data']['project']['name']."</p>";
+        $html .="<p>预约日期：".$appointment['data']['date'].$appointment['data']['start_time']."</p>";
+        $email = setting('notice_email');
+        $send = Mail::html($html, function($message) use($email) {
+            $message->from(config('mail.from')['address'],config('mail.from')['name']);
+            $message->subject('[预约]');
+            $message->to($email);
+        });
+
         return $this->response->success()->message("预约成功！")->data($appointment['data'])->json();
     }
     public function getAppointmentDates(Request $request)
