@@ -36,7 +36,6 @@ class MediaResourceController extends BaseController
         $folders = $this->mediaFolderRepository->folders($folder_id);
 
         $media_list = $this->mediaRepository->media_list($folder_id);
-
         $current_folder = [];
         $nav = '';
         if($folder_id)
