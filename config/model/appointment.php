@@ -32,6 +32,8 @@ return [
             'name' => 'like',
             'number' => 'like',
             'status' => '=',
+            'idcard' => 'like',
+            'phone' => 'like',
         ],
         'status' => [
             'unchecked',
