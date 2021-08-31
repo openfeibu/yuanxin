@@ -83,17 +83,34 @@
                                 </div>
                             @endif
 
-                            <div class="power-box-item layui-col-md6">
-                                <a href="{{ setting('customer_service') }}" target="_blank">
-                                   客服中心
-                                </a>
-                            </div>
+                           
 
                         </div>
                     </div>
 
                 </div>
+				<div class="layui-col-sm6 layui-col-md3">
+                    <div class="power-box fb-clearfix">
+                        <p>PC端客服中心</p>
+                        <div class="power-box-con"  style="height:160px;display:block" >
+                            <div class="power-box-item layui-col-md12" style="margin-top:40px	">
+                                <a href="{{ setting('customer_service') }}" target="_blank">
+                                   点击前往
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+				<div class="layui-col-sm6 layui-col-md3">
+                    <div class="power-box fb-clearfix">
+                        <p>小程序端客服中心</p>
+                        <div class="power-box-con">
+                           <img style="height:160px;display:block;margin:0 auto" src='{{ asset('images/customer.jpg') }}' ' />
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
