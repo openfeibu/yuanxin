@@ -6,29 +6,27 @@
 
         </div>
         <div class="layui-col-md12">
+            
             <div class="tabel-message">
-                <form class="layui-form appointment_code_form" action="" method="post" lay-filter="appointment_code_form">
+			 <form class="layui-form appointment_code_form" action="" method="post" lay-filter="appointment_code_form">
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">验证码</label>
+                           
                             <div class="layui-input-inline">
-                                <input type="text" name="code" autocomplete="off" class="layui-input" id="code">
+                                <input placeholder="请输入验证码" type="text" name="code" autocomplete="off" class="layui-input" id="code">
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="search_code">搜索</button>
+                            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="search_code">验证</button>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="tabel-message">
                 <form class="layui-form" action="" lay-filter="fb-form">
-                    <div class="layui-block mb10">
-                        <div class="layui-inline tabel-btn">
+                    
+                    <div class="layui-block table-search mb10">
+					 <div class="layui-inline tabel-btn">
                             <button class="layui-btn layui-btn-primary " data-type="del" data-events="del">{{ trans('app.delete') }}</button>
                         </div>
-                    </div>
-                    <div class="layui-block table-search mb10">
                         <div class="layui-inline">
                             <select name="project_id" class="search_key layui-select">
                                 @inject('projectRepository','App\Repositories\Eloquent\ProjectRepository')
