@@ -111,7 +111,6 @@ class AppointmentController extends BaseController
             ->setPresenter(\App\Repositories\Presenter\Api\AppointmentListPresenter::class)
             ->where('user_id',$user->id)
             ->find($appointment->id);
-
         $aliSms = new AliSms();
         $response = $aliSms->sendSms($archive->phone, config('aliyunsms.appointment_success_sms'), [
             'name'=> $appointment['data']['name'],
