@@ -64,7 +64,15 @@ class ReportResourceController extends BaseController
         $appointment = $this->appointmentRepository->where('id',$appointment_id)->first();
         if(!$appointment)
         {
-            return $this->response->message("预约不存在")
+            return $this->response->message("预约不存在！")
+                ->code(400)
+                ->status('error')
+                ->url(url()->previous())
+                ->redirect();
+        }
+        if($appointment->status != 'check')
+        {
+            return $this->response->message("请先核销该预约！")
                 ->code(400)
                 ->status('error')
                 ->url(url()->previous())

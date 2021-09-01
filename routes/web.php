@@ -79,6 +79,7 @@ Route::group([
     Route::resource('appointment', 'AppointmentResourceController');
     Route::post('/appointment/destroyAll', 'AppointmentResourceController@destroyAll')->name('appointment.destroy_all');
     Route::post('/appointment/check', 'AppointmentResourceController@check')->name('appointment.check');
+    Route::post('/appointment/search_code', 'AppointmentResourceController@searchCode')->name('appointment.search_code');
 
     /* 报告单 */
     Route::resource('report', 'ReportResourceController');

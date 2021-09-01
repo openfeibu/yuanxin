@@ -9,7 +9,8 @@ return [
         'start_time' => '开始时间',
         'end_time' => '结束时间',
         'note' => '备注',
-        'status' => '核销状态'
+        'status' => '核销状态',
+        'code' => '验证码'
     ],
     'status' => [
         'unchecked' => '未核销',

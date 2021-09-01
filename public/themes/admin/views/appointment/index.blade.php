@@ -3,6 +3,24 @@
     <div class="main_full">
         {!! Theme::partial('message') !!}
         <div class="layui-col-md12">
+
+        </div>
+        <div class="layui-col-md12">
+            <div class="tabel-message">
+                <form class="layui-form appointment_code_form" action="" method="post" lay-filter="appointment_code_form">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">验证码</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="code" autocomplete="off" class="layui-input" id="code">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="search_code">搜索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="tabel-message">
                 <form class="layui-form" action="" lay-filter="fb-form">
                     <div class="layui-block mb10">
@@ -111,7 +129,7 @@
                     var load = layer.load();
                     $.ajax({
                         url : "{{ guard_url('appointment/check') }}",
-                        data :  {'id':obj['id'],'number':text,'_token' : "{!! csrf_token() !!}"},
+                        data :  {'id':obj['id'],'code':text,'_token' : "{!! csrf_token() !!}"},
                         type : 'POST',
                         success : function (data) {
                             layer.close(load);
@@ -138,6 +156,31 @@
 
             },
         }
+        form.on('submit(search_code)', function(data){
+            var load = layer.load();
+            var code = $('.appointment_code_form').find('#code').val();
+            $.ajax({
+                url : "{{ guard_url('appointment/search_code') }}",
+                data :  {'code':code,'_token' : "{!! csrf_token() !!}"},
+                type : 'POST',
+                success : function (data) {
+                    layer.close(load);
+                    if(data.code == 0)
+                    {
+                        layer.msg(data.message);
+                        layer.load();
+                        window.location.href=data.url;
+                    }else{
+                        layer.msg(data.message);
+                    }
+                },
+                error : function (jqXHR, textStatus, errorThrown) {
+                    layer.close(load);
+                    $.ajax_error(jqXHR, textStatus, errorThrown);
+                }
+            });
+            return false;
+        });
     });
 </script>
 {!! Theme::partial('common_handle_js') !!}

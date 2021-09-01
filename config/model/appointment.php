@@ -21,7 +21,7 @@ return [
         'hidden'       => [],
         'visible'      => [],
         'guarded'      => ['*'],
-        'fillable'     => ['user_id', 'project_id','number','name', 'idcard', 'phone','date','start_time','end_time','note','status','created_at','updated_at'],
+        'fillable'     => ['user_id', 'project_id','number','name', 'idcard', 'phone','date','start_time','end_time','note','status','code','created_at','updated_at'],
         'translate'    => [],
         'upload_folder' => '/appointment',
         'encrypt'      => ['id'],

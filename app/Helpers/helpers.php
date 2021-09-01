@@ -1198,3 +1198,26 @@ if (!function_exists('get_future_days')) {
         return $dates;
     }
 }
+if (!function_exists('get_appointment_code')) {
+    function get_appointment_code()
+    {
+        $code = get_random();
+        if(\App\Models\Appointment::where('code',$code)->where('status','unchecked')->first(['id']))
+        {
+            return get_appointment_code();
+        }
+        return $code;
+
+    }
+}
+if (!function_exists('get_random')) {
+    function get_random($length = 6)
+    {
+        $min = pow(10, ($length - 1));
+
+        $max = pow(10, $length) - 1;
+
+        return mt_rand($min, $max);
+
+    }
+}

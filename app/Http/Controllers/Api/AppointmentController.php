@@ -104,8 +104,9 @@ class AppointmentController extends BaseController
             'phone' => $archive->phone,
             'idcard' => $archive->idcard,
         ]);
+        $code = get_appointment_code();
         $number = 'YX'.($appointment->id < 10000 ? sprintf("%05d", $appointment->id) : $appointment->id);
-        $appointment->update(['number' => $number]);
+        $appointment->update(['number' => $number,'code' => $code]);
         $appointment = $this->appointmentRepository
             ->setPresenter(\App\Repositories\Presenter\Api\AppointmentListPresenter::class)
             ->where('user_id',$user->id)
@@ -116,7 +117,7 @@ class AppointmentController extends BaseController
             'name'=> $appointment['data']['name'],
             'date'=> $appointment['data']['date'].$appointment['data']['start_time'],
             'project_name'=> $appointment['data']['project']['name'],
-            'number'=> $number,
+            'code'=> $code,
         ]);
         Sms::create([
             'code' => config('aliyunsms.appointment_success_sms'),

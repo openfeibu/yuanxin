@@ -153,21 +153,17 @@ class AppointmentResourceController extends BaseController
     {
         try {
             $id = $request->get('id');
-            $number = strtoupper($request->get('number',''));
-            if(!strstr($number, 'YX'))
-            {
-                $number = 'YX'.$number;
-            }
+            $code = strtoupper($request->get('code',''));
+
             $appointment = $this->repository->find($id);
-            if($appointment->number == $number)
+            if(strtoupper($appointment->code) == $code)
             {
                 Appointment::where('id',$id)->update(['status' => 'check']);
             }else{
                 throw new OutputServerMessageException('验证码不正确');
             }
 
-
-            return $this->response->message(trans('messages.success.deleted', ['Module' => trans('appointment.name')]))
+            return $this->response->message("核销成功！")
                 ->status("success")
                 ->http_code(202)
                 ->url(guard_url('appointment'))
@@ -182,5 +178,30 @@ class AppointmentResourceController extends BaseController
                 ->redirect();
         }
     }
+    public function searchCode(Request $request)
+    {
+        try {
+            $code = strtoupper($request->get('code',''));
 
+            $appointment = $this->repository->where('code',$code)->where('status','unchecked')->first(['id']);
+            if(!$appointment)
+            {
+                throw new OutputServerMessageException('未发现符合的未核销预约单，请检查验证码！');
+            }
+
+            return $this->response->message("搜索成功！")
+                ->status("success")
+                ->http_code(202)
+                ->url(guard_url('appointment/'.$appointment->id."?code=".$code))
+                ->redirect();
+
+        } catch (Exception $e) {
+
+            return $this->response->message($e->getMessage())
+                ->status("error")
+                ->code(400)
+                ->url(guard_url('appointment'))
+                ->redirect();
+        }
+    }
 }
