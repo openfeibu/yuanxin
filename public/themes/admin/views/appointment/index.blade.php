@@ -25,7 +25,7 @@
                     
                     <div class="layui-block table-search mb10">
 					 <div class="layui-inline tabel-btn">
-                            <button class="layui-btn layui-btn-primary " data-type="del" data-events="del">{{ trans('app.delete') }}</button>
+                            <button class="layui-btn layui-btn-primary " type="button" data-type="del" data-events="del">{{ trans('app.delete') }}</button>
                         </div>
                         <div class="layui-inline">
                             <select name="project_id" class="search_key layui-select">

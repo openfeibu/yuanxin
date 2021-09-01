@@ -133,7 +133,6 @@
                                 }
                             });
                         })  ;
-
             }
         };
         $('.tabel-message .layui-btn').on('click', function(){
