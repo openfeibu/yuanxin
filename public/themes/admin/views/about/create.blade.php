@@ -6,9 +6,9 @@
             <div class="fb-main-table">
                 <form class="layui-form" action="{{guard_url('page/about')}}" method="post" lay-filter="fb-form">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('page.label.title') }}</label>
+                        <label class="layui-form-label">{{ trans('page.label.title') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('page.label.title') }}" class="layui-input" >
+                            <input type="text" name="title"  autocomplete="off" placeholder="请输入{{ trans('page.label.title') }}" class="layui-input" >
                         </div>
                     </div>
                     <div class="layui-form-item">
